@@ -1,0 +1,12 @@
+{
+  "name": "HomeMaintenanceHub",
+  "displayName": "HomeMaintenanceHub",
+  "expo": {
+    "name": "HomeMaintenanceHub",
+    "slug": "HomeMaintenanceHub",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
