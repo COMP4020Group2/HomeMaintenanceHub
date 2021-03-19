@@ -11,49 +11,50 @@ import UserProfileScreen from './screens/UserProfileScreen';
 import ContractorProfileScreen from './screens/ContractorProfileScreen';
 import BookScreen from './screens/BookScreen';
 import AppointmentDetailsScreen from './screens/AppointmentDetailsScreen';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-const Stack = createStackNavigator();
+const NavBar = createBottomTabNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
+      <NavBar.Navigator>
+        <NavBar.Screen
           name="Home"
           component={HomeScreen}
-          options={{ title: 'Home Maintenance Hub' }}
+          options={{ title: 'Home' }}
         />
-        <Stack.Screen
+        <NavBar.Screen
           name="SearchResults"
           component={SearchResultsScreen}
-          options={{ title: 'Home Maintenance Hub' }}
+          options={{ title: 'Search' }}
         />
-        <Stack.Screen
+        <NavBar.Screen
           name="History"
           component={HistoryScreen}
-          options={{ title: 'Home Maintenance Hub' }}
+          options={{ title: 'History' }}
         />
-        <Stack.Screen
+        <NavBar.Screen
           name="UserProfile"
           component={UserProfileScreen}
-          options={{ title: 'Home Maintenance Hub' }}
+          options={{ title: 'Profile' }}
         />
-        <Stack.Screen
+        <NavBar.Screen
           name="ContractorProfile"
           component={ContractorProfileScreen}
-          options={{ title: 'Home Maintenance Hub' }}
+          options={{ title: 'Contractor' }}
         />
-        <Stack.Screen
+        <NavBar.Screen
           name="Book"
           component={BookScreen}
-          options={{ title: 'Home Maintenance Hub' }}
+          options={{ title: 'Book' }}
         />
-        <Stack.Screen
+        <NavBar.Screen
           name="AppointmentDetails"
           component={AppointmentDetailsScreen}
-          options={{ title: 'Home Maintenance Hub' }}
+          options={{ title: 'Appointments' }}
         />
-      </Stack.Navigator>
+      </NavBar.Navigator>
     </NavigationContainer>
   );
 }
