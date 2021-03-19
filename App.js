@@ -1,69 +1,69 @@
-import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import React from 'react';
+import { StyleSheet } from 'react-native';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import HomeScreen from './screens/HomeScreen';
-import SearchResultsScreen from './screens/SearchResultsScreen';
-import HistoryScreen from './screens/HistoryScreen';
-import UserProfileScreen from './screens/UserProfileScreen';
-import ContractorProfileScreen from './screens/ContractorProfileScreen';
-import BookScreen from './screens/BookScreen';
-import AppointmentDetailsScreen from './screens/AppointmentDetailsScreen';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import SearchStackScreen from './screens/stacks/SearchStackScreen';
+import HistoryStackScreen from './screens/stacks/HistoryStackScreen';
+import UserProfileStackScreen from './screens/stacks/UserProfileStackScreen';
+import AppointmentsStackScreen from './screens/stacks/AppointmentsStackScreen';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const NavBar = createBottomTabNavigator();
+const NavBar = createMaterialBottomTabNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <NavBar.Navigator>
+      <NavBar.Navigator
+        initialRouteName="Search"
+        activeColor="#fff"
+        inactiveColor="#fff"
+        labeled
+        barStyle={{ backgroundColor: 'blue' }}
+      >
         <NavBar.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{ title: 'Home' }}
-        />
-        <NavBar.Screen
-          name="SearchResults"
-          component={SearchResultsScreen}
-          options={{ title: 'Search' }}
+          name="Search"
+          component={SearchStackScreen}
+          options={{
+            tabBarLabel: 'Search',
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="magnify" color={color} size={26} />
+            )
+          }}
         />
         <NavBar.Screen
           name="History"
-          component={HistoryScreen}
-          options={{ title: 'History' }}
+          component={HistoryStackScreen}
+          options={{
+            tabBarLabel: 'History',
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="clock" color={color} size={26} />
+            )
+          }}
+        />
+        <NavBar.Screen
+          name="Appointments"
+          component={AppointmentsStackScreen}
+          options={{
+            tabBarLabel: 'Appointments',
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="calendar" color={color} size={26} />
+            )
+          }}
         />
         <NavBar.Screen
           name="UserProfile"
-          component={UserProfileScreen}
-          options={{ title: 'Profile' }}
-        />
-        <NavBar.Screen
-          name="ContractorProfile"
-          component={ContractorProfileScreen}
-          options={{ title: 'Contractor' }}
-        />
-        <NavBar.Screen
-          name="Book"
-          component={BookScreen}
-          options={{ title: 'Book' }}
-        />
-        <NavBar.Screen
-          name="AppointmentDetails"
-          component={AppointmentDetailsScreen}
-          options={{ title: 'Appointments' }}
+          component={UserProfileStackScreen}
+          options={{
+            tabBarLabel: 'Profile',
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="account" color={color} size={26} />
+            )
+          }}
         />
       </NavBar.Navigator>
     </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
-});
+const styles = StyleSheet.create({});
