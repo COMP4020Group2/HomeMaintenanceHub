@@ -4,31 +4,31 @@ import { StyleSheet, Text, View, Button,TouchableOpacity,SearchBar, navigation }
 const SearchScreen = ({ navigation }) => {
   return (<View style={styles.container} >
 
-    <TouchableOpacity onPress={() => navigation.navigate('Contractor Profile')}>
+    <TouchableOpacity onPress={() => navigation.navigate('Search Results',{ data: "Carpentry"})}>
       <View style={styles.button}>
         <Text style={styles.buttonText}>Carpentry</Text>
       </View>
     </TouchableOpacity>
 
-    <TouchableOpacity>
+    <TouchableOpacity onPress={() => navigation.navigate('Search Results',{ data: "Electrical"})}>
       <View style={styles.button}>
         <Text style={styles.buttonText}>Electrical</Text>
       </View>
     </TouchableOpacity>
 
-    <TouchableOpacity>
+    <TouchableOpacity onPress={() => navigation.navigate('Search Results',{ data: "Roofing"})}>
       <View style={styles.button}>
         <Text style={styles.buttonText}>Roofing</Text>
       </View>
     </TouchableOpacity>
 
-    <TouchableOpacity>
+    <TouchableOpacity onPress={() => navigation.navigate('Search Results',{ data: "Plumbing"})}>
       <View style={styles.button}>
         <Text style={styles.buttonText}>Plumbing</Text>
       </View>
     </TouchableOpacity>
 
-    <TouchableOpacity>
+    <TouchableOpacity onPress={() => navigation.navigate('Search Results',{ data: "HVAC"})}>
       <View style={styles.button}>
         <Text style={styles.buttonText}>HVAC</Text>
       </View>
