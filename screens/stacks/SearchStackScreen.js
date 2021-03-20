@@ -12,7 +12,7 @@ const SearchStackScreen = ({ navigation }) => {
     <SearchStack.Navigator>
       <SearchStack.Screen name="Search" component={SearchScreen} />
       <SearchStack.Screen
-        name="Appointment Details"
+        name="Search Results"
         component={SearchResultsScreen}
       />
       <SearchStack.Screen
