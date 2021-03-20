@@ -8,61 +8,83 @@ import UserProfileStackScreen from './screens/stacks/UserProfileStackScreen';
 import AppointmentsStackScreen from './screens/stacks/AppointmentsStackScreen';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { DefaultTheme, Provider } from 'react-native-paper';
 
 const NavBar = createMaterialBottomTabNavigator();
-
+const theme = {
+  ...DefaultTheme,
+  roundness: 2,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: '#2194f2'
+  }
+};
 export default function App() {
   return (
-    <NavigationContainer>
-      <NavBar.Navigator
-        initialRouteName="Search"
-        activeColor="#fff"
-        inactiveColor="#fff"
-        labeled
-        barStyle={{ backgroundColor: 'blue' }}
-      >
-        <NavBar.Screen
-          name="Search"
-          component={SearchStackScreen}
-          options={{
-            tabBarLabel: 'Search',
-            tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="magnify" color={color} size={26} />
-            )
-          }}
-        />
-        <NavBar.Screen
-          name="History"
-          component={HistoryStackScreen}
-          options={{
-            tabBarLabel: 'History',
-            tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="clock" color={color} size={26} />
-            )
-          }}
-        />
-        <NavBar.Screen
-          name="Appointments"
-          component={AppointmentsStackScreen}
-          options={{
-            tabBarLabel: 'Appointments',
-            tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="calendar" color={color} size={26} />
-            )
-          }}
-        />
-        <NavBar.Screen
-          name="UserProfile"
-          component={UserProfileStackScreen}
-          options={{
-            tabBarLabel: 'Profile',
-            tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="account" color={color} size={26} />
-            )
-          }}
-        />
-      </NavBar.Navigator>
-    </NavigationContainer>
+    <Provider theme={theme}>
+      <NavigationContainer>
+        <NavBar.Navigator
+          initialRouteName="Search"
+          activeColor="#fff"
+          inactiveColor="#fff"
+          labeled
+          barStyle={{ backgroundColor: theme.colors.primary }}
+        >
+          <NavBar.Screen
+            name="Search"
+            component={SearchStackScreen}
+            options={{
+              tabBarLabel: 'Search',
+              tabBarIcon: ({ color }) => (
+                <MaterialCommunityIcons
+                  name="magnify"
+                  color={color}
+                  size={26}
+                />
+              )
+            }}
+          />
+          <NavBar.Screen
+            name="History"
+            component={HistoryStackScreen}
+            options={{
+              tabBarLabel: 'History',
+              tabBarIcon: ({ color }) => (
+                <MaterialCommunityIcons name="clock" color={color} size={26} />
+              )
+            }}
+          />
+          <NavBar.Screen
+            name="Appointments"
+            component={AppointmentsStackScreen}
+            options={{
+              tabBarLabel: 'Appointments',
+              tabBarIcon: ({ color }) => (
+                <MaterialCommunityIcons
+                  name="calendar"
+                  color={color}
+                  size={26}
+                />
+              )
+            }}
+          />
+          <NavBar.Screen
+            name="UserProfile"
+            component={UserProfileStackScreen}
+            options={{
+              tabBarLabel: 'Profile',
+              tabBarIcon: ({ color }) => (
+                <MaterialCommunityIcons
+                  name="account"
+                  color={color}
+                  size={26}
+                />
+              )
+            }}
+          />
+        </NavBar.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 }
 
