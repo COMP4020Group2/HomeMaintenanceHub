@@ -44,5 +44,17 @@ module.exports = {
     return reviews.filter(
       (review) => review.contractor.toLowerCase() === contractor.toLowerCase()
     );
+  },
+  getUserReviews(reviewer) {
+    return reviews.filter(
+      (review) => review.reviewer.toLowerCase() === reviewer.toLowerCase()
+    );
+  },
+  getUserContractorReview(reviewer, contractor) {
+    return reviews.filter(
+      (review) =>
+        review.reviewer.toLowerCase === reviewer.toLowerCase() &&
+        review.contractor.toLowerCase() === contractor.toLowerCase()
+    );
   }
 };
