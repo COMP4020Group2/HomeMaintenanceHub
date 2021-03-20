@@ -1,8 +1,24 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
+import AppointmentCard from '../components/AppointmentCard';
+import { getAllAppointments } from '../stubs/appointments';
+
+const appointments = getAllAppointments();
 
 const UpcomingAppointmentsScreen = ({ navigation }) => {
-  return <Text>Upcoming Appointments</Text>;
+  return (
+    <View style={styles.container}>
+      {appointments.map((appointment, index) => (
+        <AppointmentCard key={index} appointment={appointment} />
+      ))}
+    </View>
+  );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    marginTop: '10%'
+  }
+});
 
 export default UpcomingAppointmentsScreen;
