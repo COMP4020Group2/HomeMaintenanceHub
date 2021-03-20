@@ -3,7 +3,9 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const ContractorProfileScreen = ({ navigation }) => {
-  return <Text>Contractor Profile Screen</Text>;
+  return (<View>
+        <Text>Contractor Profile Screen</Text>
+        </View>);
 };
 const styles = StyleSheet.create({
   container:{
