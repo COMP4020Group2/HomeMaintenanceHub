@@ -1,10 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button,TouchableOpacity,SearchBar } from 'react-native';
+import { StyleSheet, Text, View, Button,TouchableOpacity,SearchBar, navigation } from 'react-native';
 
 const SearchScreen = ({ navigation }) => {
   return (<View style={styles.container} >
 
-    <TouchableOpacity>
+    <TouchableOpacity onPress={() => navigation.navigate('Contractor Profile')}>
       <View style={styles.button}>
         <Text style={styles.buttonText}>Carpentry</Text>
       </View>
