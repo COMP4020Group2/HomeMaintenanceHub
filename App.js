@@ -13,7 +13,11 @@ import { DefaultTheme, Provider } from 'react-native-paper';
 const NavBar = createMaterialBottomTabNavigator();
 const theme = {
   ...DefaultTheme,
-  roundness: 2
+  roundness: 2,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: '#2194f2'
+  }
 };
 export default function App() {
   return (
@@ -24,7 +28,7 @@ export default function App() {
           activeColor="#fff"
           inactiveColor="#fff"
           labeled
-          barStyle={{ backgroundColor: 'blue' }}
+          barStyle={{ backgroundColor: theme.colors.primary }}
         >
           <NavBar.Screen
             name="Search"
