@@ -9,7 +9,7 @@ const AppointmentsStackScreen = ({ navigation }) => {
   return (
     <AppointmentsStack.Navigator>
       <AppointmentsStack.Screen
-        name="Appointments"
+        name="Upcoming Appointments"
         component={UpcomingAppointmentsScreen}
       />
       <AppointmentsStack.Screen
