@@ -5,9 +5,14 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 const HistoryCard = ({ history }) => {
     return (
       <View style={styles.entryBox}>
-        <Text style={styles.entryText}>{history.name}</Text>
-        <Text style={styles.dateText}>{history.date}</Text>
-        <Text style={styles.priceText}>{"$"+history.price}</Text>
+        <View style={styles.textView}>
+            <Text style={styles.entryText}>{history.name}</Text>
+            <Text style={styles.dateText}>{history.date}</Text>
+            <Text style={styles.priceText}>{"$"+history.price}</Text>
+        </View>
+        <View style={styles.iconView}>
+            <MaterialCommunityIcons name={history.positive ?"check-circle-outline" :"close-circle-outline"} color={history.positive ?"green" :"red"} size={40} />
+        </View> 
       </View>
     );
   };
@@ -20,7 +25,9 @@ entryBox:{
     marginHorizontal:"5%",
     marginVertical:"3%",
     width: "90%",
-    height: "16%"
+    height: "16%",
+    flexDirection: "row",
+    justifyContent: "space-between"
   },
   entryText:{
     color: "black",
@@ -37,6 +44,12 @@ entryBox:{
     color: "green",
     fontSize: 18,
     textAlign:'left'
+  },
+  iconView:{
+    justifyContent: "center"
+  },
+  textView:{
+
   }
 });
 
