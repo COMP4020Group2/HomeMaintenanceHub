@@ -1,3 +1,5 @@
+const { getContractorReviews } = require('./reviews');
+
 let contractors = [
   {
     id: 1,
@@ -221,11 +223,26 @@ let contractors = [
   }
 ];
 
+const setStars = () => {
+  contractors.forEach((contractor) => {
+    let reviews = getContractorReviews(contractor.name);
+    if (reviews.length !== 0) {
+      let totalStars = 0;
+      reviews.forEach((review) => (totalStars += review.stars));
+      contractor.stars = totalStars / reviews.length;
+    } else {
+      contractor.stars = 0;
+    }
+  });
+};
+
 module.exports = {
   getAllContractors() {
+    setStars();
     return contractors;
   },
   getContractors(category) {
+    setStars();
     return contractors.filter(
       (contractor) =>
         contractor.category.toLowerCase() === category.toLowerCase()
