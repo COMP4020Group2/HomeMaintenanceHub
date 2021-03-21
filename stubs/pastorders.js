@@ -42,9 +42,13 @@ module.exports = {
     return pastOrders;
   },
   updateOrder(order) {
+    console.log(order)
     for (let x = 0; x < pastOrders.length; x++) {
       if (order.id === pastOrders[x].id) {
+        console.log('fuckshit')
         pastOrders[x] = order;
+        console.log(order);
+        console.log(pastOrders[x]);
         break;
       }
     }

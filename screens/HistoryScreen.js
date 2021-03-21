@@ -4,11 +4,9 @@ import HistoryCard from '../components/HistoryCard';
 import {getAllPastOrders} from '../stubs/pastorders';
 import {Picker} from '@react-native-picker/picker';
 
-const orders = getAllPastOrders();
-
-
 const HistoryScreen = ({ navigation }) => {
   const [selectedDate, setSelectedDate] = useState();
+  const orders = getAllPastOrders();
   return (
     <View style={styles.container}>
       <View style={styles.dropMenu}>

@@ -6,16 +6,43 @@ import { getUserContractorReview } from "../stubs/reviews";
 import { getUser } from "../stubs/user";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { TouchableOpacity } from "react-native";
+import { updateOrder } from '../stubs/pastorders'
+import { color } from "react-native-reanimated";
+import { useState } from "react";
 
 const PastOrderDetailsScreen = ({ navigation, route }) => {
-  var reviewResponse = getUserContractorReview(
+  const reviewResponse = getUserContractorReview(
     getUser().name,
     route.params.name
   );
-  var myReview;
-  if (reviewResponse.length != 0) {
-    myReview = reviewResponse[0];
-  } else {
+  let myReview = reviewResponse[0];
+  const [positive,setPositive] = useState(route.params.positive);
+
+  const pressPositiveButton = ()=>{
+    route.params.positive = true;
+    setPositive(true);
+    let order = {
+      id: route.params.id,
+      name: route.params.name,
+      date: route.params.date,
+      price: route.params.price,
+      positive: true
+    }
+    updateOrder(order);
+  }
+
+  const pressNegativeButton = ()=>{
+    route.params.positive = false;
+    setPositive(false);
+    let order = {
+      id: route.params.id,
+      name: route.params.name,
+      date: route.params.date,
+      price: route.params.price,
+      positive: false
+    }
+    updateOrder(order);
+
   }
 
   return (
@@ -56,18 +83,23 @@ const PastOrderDetailsScreen = ({ navigation, route }) => {
       <View style={styles.Box}>
         <Text style={{ fontWeight: "bold" }}>Recommended?</Text>
         <View style={{ flexDirection: "row" }}>
+          <TouchableOpacity style={styles.icons} onPress={pressPositiveButton}>
           <MaterialCommunityIcons
-            style={styles.icons}
+            
             name="check-circle-outline"
-            color={route.params.positive ? "green" : "grey"}
+            color={positive ? "green" : "grey"}
             size={100}
           />
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.icons} onPress={pressNegativeButton}>
           <MaterialCommunityIcons
-            style={styles.icons}
+            
             name="close-circle-outline"
-            color={route.params.positive ? "grey" : "red"}
+            color={positive ? "grey" : "red"}
             size={100}
           />
+          </TouchableOpacity>
         </View>
       </View>
       <TouchableOpacity style={styles.button}>
@@ -82,6 +114,7 @@ const PastOrderDetailsScreen = ({ navigation, route }) => {
     </View>
   );
 };
+
 
 export default PastOrderDetailsScreen;
 
