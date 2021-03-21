@@ -73,7 +73,12 @@ const ContractorProfileScreen = ({ navigation, route }) => {
           <Image style={styles.photo} source={require('../images/brett.jpg')} />
         </View>
       </View>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('Book Screen', { ...route.params });
+        }}
+        style={styles.button}
+      >
         <Text style={styles.buttonText}>Book Now</Text>
       </TouchableOpacity>
     </View>

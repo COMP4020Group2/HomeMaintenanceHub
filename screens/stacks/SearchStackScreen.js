@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 import SearchScreen from '../SearchScreen';
 import SearchResultsScreen from '../SearchResultsScreen';
 import ContractorProfileScreen from '../ContractorProfileScreen';
+import BookScreen from '../BookScreen';
 
 const SearchStack = createStackNavigator();
 
@@ -19,6 +20,7 @@ const SearchStackScreen = ({ navigation }) => {
         name="Contractor Profile"
         component={ContractorProfileScreen}
       />
+      <SearchStack.Screen name="Book Screen" component={BookScreen} />
     </SearchStack.Navigator>
   );
 };
