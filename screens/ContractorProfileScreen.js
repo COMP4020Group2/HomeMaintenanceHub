@@ -1,21 +1,21 @@
-import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-  SearchBar,
-  Image,
-  Linking
-} from 'react-native';
-import { Avatar } from 'react-native-paper';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import { Avatar, FAB } from 'react-native-paper';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { buildDollars, buildStars } from '../utils/stringUtils';
 import { getContractorReviews } from '../stubs/reviews';
 import ReviewCard from '../components/ReviewCard';
+import { useIsFocused } from '@react-navigation/native';
 
 const ContractorProfileScreen = ({ navigation, route }) => {
-  const reviews = getContractorReviews(route.params.name);
+  const [reviews, setReviews] = useState();
+  const isFocused = useIsFocused();
+  const [contractorInfo, setContractorInfo] = useState({ ...route.params });
+
+  useEffect(() => {
+    setReviews(getContractorReviews(contractorInfo.name));
+  }, [isFocused]);
+
   return (
     <View style={styles.container}>
       <View style={styles.headerBox}>
@@ -27,14 +27,14 @@ const ContractorProfileScreen = ({ navigation, route }) => {
           />
         </View>
         <View style={styles.headerTitle}>
-          <Text style={styles.entryText}>{route.params.name}</Text>
+          <Text style={styles.entryText}>{contractorInfo.name}</Text>
           <View style={styles.headerRow}>
-            <Text style={styles.typeMetadata}>{route.params.category}</Text>
+            <Text style={styles.typeMetadata}>{contractorInfo.category}</Text>
             <Text style={styles.priceMetadata}>
-              {buildDollars(route.params.price)}
+              {buildDollars(contractorInfo.price)}
             </Text>
             <Text style={styles.rateMetadata}>
-              {buildStars(route.params.stars)}
+              {buildStars(contractorInfo.stars)}
             </Text>
           </View>
         </View>
@@ -42,28 +42,48 @@ const ContractorProfileScreen = ({ navigation, route }) => {
 
       <View style={styles.aboutBox}>
         <Text style={styles.aboutTitle}>ABOUT ME</Text>
-        <Text style={styles.aboutInfo}>{route.params.description}</Text>
+        <Text style={styles.aboutInfo}>{contractorInfo.description}</Text>
         <Text></Text>
         <View style={styles.contactInfo}>
           <MaterialCommunityIcons name="web" size={18} />
-          <Text>{route.params.website}</Text>
+          <Text>{contractorInfo.website}</Text>
           <MaterialCommunityIcons
             style={styles.phoneNumber}
             name="phone"
             size={18}
           />
-          <Text>{route.params.phone}</Text>
+          <Text>{contractorInfo.phone}</Text>
         </View>
       </View>
 
-      <View style={styles.reviewBox}>
+      <TouchableOpacity
+        style={styles.reviewBox}
+        onPress={() =>
+          navigation.navigate('Reviews', {
+            contractor: contractorInfo.name,
+            reviews: reviews
+          })
+        }
+      >
         <Text style={styles.aboutTitle}>
-          {reviews.length} Review{reviews.length !== 1 ? 's' : ''}
+          {reviews?.length} Review{reviews?.length !== 1 ? 's' : ''}
         </Text>
-        {reviews.map((review, index) => (
+        {reviews?.map((review, index) => (
           <ReviewCard key={index} reviewInfo={review} />
         ))}
-      </View>
+        <View style={styles.fabContainer}>
+          <FAB
+            color={'blue'}
+            style={styles.fab}
+            icon={'plus'}
+            onPress={() =>
+              navigation.navigate('Add Review', {
+                contractor: contractorInfo.name
+              })
+            }
+          />
+        </View>
+      </TouchableOpacity>
 
       <View style={styles.reviewBox}>
         <Text style={styles.photoTitle}>Photos</Text>
@@ -75,7 +95,7 @@ const ContractorProfileScreen = ({ navigation, route }) => {
       </View>
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate('Book Screen', { ...route.params });
+          navigation.navigate('Book', { ...contractorInfo });
         }}
         style={styles.button}
       >
@@ -221,6 +241,13 @@ const styles = StyleSheet.create({
   },
   row: {
     flex: 1
+  },
+  fab: {
+    width: '15%'
+  },
+  fabContainer: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end'
   }
 });
 

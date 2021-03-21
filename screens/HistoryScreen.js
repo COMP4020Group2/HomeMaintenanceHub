@@ -3,10 +3,8 @@ import { StyleSheet, View } from 'react-native';
 import { Text } from 'react-native-paper';
 import HistoryCard from '../components/HistoryCard';
 import { getAllPastOrders } from '../stubs/pastorders';
-import { Picker } from '@react-native-picker/picker';
 import { useEffect } from 'react';
 import { useIsFocused } from '@react-navigation/native';
-import RNPickerSelect from 'react-native-picker-select';
 import DropDownPicker from 'react-native-dropdown-picker';
 
 const HistoryScreen = ({ navigation }) => {

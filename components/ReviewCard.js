@@ -19,7 +19,8 @@ const ReviewCard = ({ reviewInfo }) => {
 const styles = StyleSheet.create({
   card: {
     marginBottom: 10,
-    paddingLeft: 10
+    paddingLeft: 10,
+    width: '90%'
   },
   reviewDate: {
     fontSize: 10,
