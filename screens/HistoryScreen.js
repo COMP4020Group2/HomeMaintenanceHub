@@ -5,7 +5,7 @@ import { getAllPastOrders } from '../stubs/pastorders';
 import { Picker } from '@react-native-picker/picker';
 import { useEffect } from 'react';
 import { useIsFocused } from '@react-navigation/native';
-
+import RNPickerSelect from 'react-native-picker-select';
 
 const HistoryScreen = ({ navigation }) => {
   const [selectedDate, setSelectedDate] = useState();
@@ -17,18 +17,19 @@ const HistoryScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.dropMenu}>
-        <Picker
-          selectedValue={selectedDate}
-          onValueChange={(itemValue, itemIndex) => setSelectedDate(itemValue)}
-        >
-          <Picker.Item label="All" value="All" />
-          <Picker.Item label="Past Year" value="pastYear" />
-          <Picker.Item label="Past 6 Months" value="past6Months" />
-          <Picker.Item label="Past 3 Months" value="past3Months" />
-          <Picker.Item label="Past Month" value="pastMonth" />
-        </Picker>
-      </View>
+      <RNPickerSelect
+        style={styles.dropMenu}
+        selectedValue={selectedDate}
+        onValueChange={(value) => setSelectedDate(value)}
+        items={[
+          { label: 'All', value: 'All' },
+          { label: 'Past Year', value: 'pastYear' },
+          { label: 'Past 6 Months', value: 'past6Months' },
+          { label: 'Past 3 Months', value: 'past3Months' },
+          { label: 'Past Month', value: 'pastMonth' }
+        ]}
+      />
+
       <View style={styles.historyEntries}>
         {orders?.map((history, index) => (
           <HistoryCard
