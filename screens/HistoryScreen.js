@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
+import { Text } from 'react-native-paper';
 import HistoryCard from '../components/HistoryCard';
 import { getAllPastOrders } from '../stubs/pastorders';
 import { Picker } from '@react-native-picker/picker';
 import { useEffect } from 'react';
 import { useIsFocused } from '@react-navigation/native';
 import RNPickerSelect from 'react-native-picker-select';
+import DropDownPicker from 'react-native-dropdown-picker';
 
 const HistoryScreen = ({ navigation }) => {
-  const [selectedDate, setSelectedDate] = useState();
+  const [selectedDate, setSelectedDate] = useState('allTime');
   const isFocused = useIsFocused();
   const [orders, setOrders] = useState();
   useEffect(() => {
@@ -17,19 +19,24 @@ const HistoryScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <RNPickerSelect
-        style={styles.dropMenu}
-        selectedValue={selectedDate}
-        onValueChange={(value) => setSelectedDate(value)}
+      <Text style={styles.labelText}>Show Results From:</Text>
+      <DropDownPicker
+        onChangeItem={(item) => setSelectedDate(item.value)}
+        containerStyle={{ height: 40, marginHorizontal: 18 }}
+        style={{ backgroundColor: '#fafafa' }}
+        itemStyle={{
+          justifyContent: 'flex-start'
+        }}
+        defaultValue={selectedDate}
+        dropDownStyle={{ backgroundColor: '#fafafa' }}
         items={[
-          { label: 'All', value: 'All' },
+          { label: 'All Time', value: 'allTime' },
           { label: 'Past Year', value: 'pastYear' },
           { label: 'Past 6 Months', value: 'past6Months' },
           { label: 'Past 3 Months', value: 'past3Months' },
           { label: 'Past Month', value: 'pastMonth' }
         ]}
       />
-
       <View style={styles.historyEntries}>
         {orders?.map((history, index) => (
           <HistoryCard
@@ -45,13 +52,23 @@ const HistoryScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: '10%'
+    marginTop: '5%'
+  },
+  labelText: {
+    fontWeight: 'bold',
+    fontSize: 18,
+    marginHorizontal: 18
+  },
+  pickerContainer: {
+    marginHorizontal: 18,
+    zIndex: 1000
   },
   historyEntries: {
     height: '89%'
   },
   dropMenu: {
-    height: '11%'
+    height: '11%',
+    marginBottom: 10
   }
 });
 
