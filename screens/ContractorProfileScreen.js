@@ -5,7 +5,8 @@ import {
   View,
   TouchableOpacity,
   SearchBar,
-  Image
+  Image,
+  Linking
 } from 'react-native';
 import { Avatar } from 'react-native-paper';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
