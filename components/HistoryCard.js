@@ -1,10 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View , TouchableOpacity} from 'react-native';
+
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const HistoryCard = ({ history }) => {
+const HistoryCard = ({ history, navigate }) => {
     return (
-      <View style={styles.entryBox}>
+      <TouchableOpacity style={styles.entryBox} onPress={() => navigate('PastOrderDetails',{ ...history })}>
         <View style={styles.textView}>
             <Text style={styles.entryText}>{history.name}</Text>
             <Text style={styles.dateText}>{history.date}</Text>
@@ -13,7 +14,7 @@ const HistoryCard = ({ history }) => {
         <View style={styles.iconView}>
             <MaterialCommunityIcons name={history.positive ?"check-circle-outline" :"close-circle-outline"} color={history.positive ?"green" :"red"} size={40} />
         </View> 
-      </View>
+      </TouchableOpacity>
     );
   };
 

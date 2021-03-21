@@ -26,7 +26,7 @@ const HistoryScreen = ({ navigation }) => {
       </View>
       <View style={styles.historyEntries}>
         {orders.map((history, index) => (
-          <HistoryCard key={index} history={history} />
+          <HistoryCard key={index} history={history} navigate={navigation.navigate} />
         ))}
       </View>
     </View>
