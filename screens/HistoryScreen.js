@@ -1,13 +1,20 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import HistoryCard from '../components/HistoryCard';
 import { getAllPastOrders } from '../stubs/pastorders';
 import { Picker } from '@react-native-picker/picker';
+import { useEffect } from 'react';
+import { useIsFocused } from '@react-navigation/native';
 
-const orders = getAllPastOrders();
 
 const HistoryScreen = ({ navigation }) => {
   const [selectedDate, setSelectedDate] = useState();
+  const isFocused = useIsFocused();
+  const [orders, setOrders] = useState();
+  useEffect(() => {
+    setOrders(getAllPastOrders());
+  }, [isFocused]);
+
   return (
     <View style={styles.container}>
       <View style={styles.dropMenu}>
@@ -23,8 +30,12 @@ const HistoryScreen = ({ navigation }) => {
         </Picker>
       </View>
       <View style={styles.historyEntries}>
-        {orders.map((history, index) => (
-          <HistoryCard key={index} history={history} />
+        {orders?.map((history, index) => (
+          <HistoryCard
+            key={index}
+            history={history}
+            navigate={navigation.navigate}
+          />
         ))}
       </View>
     </View>
@@ -36,10 +47,10 @@ const styles = StyleSheet.create({
     marginTop: '10%'
   },
   historyEntries: {
-    height: '85%'
+    height: '89%'
   },
   dropMenu: {
-    height: '10%'
+    height: '11%'
   }
 });
 
