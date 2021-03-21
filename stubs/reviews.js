@@ -303,7 +303,7 @@ module.exports = {
   getUserContractorReview(reviewer, contractor) {
     return reviews.filter(
       (review) =>
-        review.reviewer.toLowerCase === reviewer.toLowerCase() &&
+        review.reviewer.toLowerCase() === reviewer.toLowerCase() &&
         review.contractor.toLowerCase() === contractor.toLowerCase()
     );
   }

@@ -1,11 +1,10 @@
-import React, {useState} from 'react';
-import { StyleSheet, Text, View} from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 import HistoryCard from '../components/HistoryCard';
-import {getAllPastOrders} from '../stubs/pastorders';
-import {Picker} from '@react-native-picker/picker';
+import { getAllPastOrders } from '../stubs/pastorders';
+import { Picker } from '@react-native-picker/picker';
 
 const orders = getAllPastOrders();
-
 
 const HistoryScreen = ({ navigation }) => {
   const [selectedDate, setSelectedDate] = useState();
@@ -14,9 +13,8 @@ const HistoryScreen = ({ navigation }) => {
       <View style={styles.dropMenu}>
         <Picker
           selectedValue={selectedDate}
-          onValueChange={(itemValue, itemIndex) =>
-            setSelectedDate(itemValue)
-          }>
+          onValueChange={(itemValue, itemIndex) => setSelectedDate(itemValue)}
+        >
           <Picker.Item label="All" value="All" />
           <Picker.Item label="Past Year" value="pastYear" />
           <Picker.Item label="Past 6 Months" value="past6Months" />
@@ -34,14 +32,14 @@ const HistoryScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  container:{
-    marginTop:"10%"
+  container: {
+    marginTop: '10%'
   },
-  historyEntries:{
-    height:"89%"
+  historyEntries: {
+    height: '85%'
   },
-  dropMenu:{
-    height:"11%"
+  dropMenu: {
+    height: '10%'
   }
 });
 
