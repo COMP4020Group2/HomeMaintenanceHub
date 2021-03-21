@@ -74,7 +74,9 @@ const ContractorProfileScreen = ({ navigation, route }) => {
         </View>
       </View>
       <TouchableOpacity
-        onPress={navigation.navigate('Book Screen', { ...route.params })}
+        onPress={() => {
+          navigation.navigate('Book Screen', { ...route.params });
+        }}
         style={styles.button}
       >
         <Text style={styles.buttonText}>Book Now</Text>
