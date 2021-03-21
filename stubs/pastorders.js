@@ -41,6 +41,9 @@ module.exports = {
   getAllPastOrders() {
     return pastOrders;
   },
+  getPastOrder(id) {
+    return pastOrders.filter((pastOrder) => pastOrder.id === id);
+  },
   updateOrder(order) {
     console.log(order)
     for (let x = 0; x < pastOrders.length; x++) {
