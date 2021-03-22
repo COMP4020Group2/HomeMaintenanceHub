@@ -5,7 +5,7 @@ import SearchScreen from '../SearchScreen';
 import SearchResultsScreen from '../SearchResultsScreen';
 import ContractorProfileScreen from '../ContractorProfileScreen';
 import BookScreen from '../BookScreen';
-import ReviewsScreen from '../ReviewsScreen';
+import ContractorReviewsScreen from '../ContractorReviewsScreen';
 import AddReviewScreen from '../AddReviewScreen';
 
 const SearchStack = createStackNavigator();
@@ -23,7 +23,7 @@ const SearchStackScreen = ({ navigation }) => {
         component={ContractorProfileScreen}
       />
       <SearchStack.Screen name="Book" component={BookScreen} />
-      <SearchStack.Screen name="Reviews" component={ReviewsScreen} />
+      <SearchStack.Screen name="Reviews" component={ContractorReviewsScreen} />
       <SearchStack.Screen name="Add Review" component={AddReviewScreen} />
     </SearchStack.Navigator>
   );

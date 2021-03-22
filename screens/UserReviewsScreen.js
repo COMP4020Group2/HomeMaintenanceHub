@@ -1,9 +1,8 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import ReviewCard from '../components/ReviewCard';
-import { FAB } from 'react-native-paper';
 
-const ReviewsScreen = ({ navigation, route }) => {
+const UserReviewsScreen = ({ navigation, route }) => {
   return (
     <View style={styles.container}>
       {route.params.reviews.map((review, index) => (
@@ -13,16 +12,6 @@ const ReviewsScreen = ({ navigation, route }) => {
           navigate={navigation.navigate}
         />
       ))}
-      <FAB
-        color={'blue'}
-        style={styles.fab}
-        icon={'plus'}
-        onPress={() => {
-          navigation.navigate('Add Review', {
-            contractor: route.params.contractor
-          });
-        }}
-      />
     </View>
   );
 };
@@ -40,4 +29,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ReviewsScreen;
+export default UserReviewsScreen;
