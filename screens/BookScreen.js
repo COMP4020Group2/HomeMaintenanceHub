@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import {View, TouchableOpacity} from 'react-native';
 import {Agenda} from 'react-native-calendars';
 import {Card, Text, Portal, Dialog, Button} from 'react-native-paper';
-import { getAvailabilities } from '../stubs/availabilities'
+import { getAvailabilities } from '../stubs/availabilities';
+import { addAppointment } from '../stubs/appointments';
 
 const getMonday = (day) => {
   const date = new Date(day.timestamp);
@@ -13,7 +14,7 @@ const getMonday = (day) => {
   return date;
 };
 
-const BookScreen = ({ navigation }) => {
+const BookScreen = ({ navigation, route }) => {
   const [items, setItems] = useState({});
   const [dialogVisible, setDialogVisible] = useState(false);
   const [time, setTime] = useState("");
@@ -76,7 +77,12 @@ const BookScreen = ({ navigation }) => {
   }
 
   const bookAppointment = () => {
-    // TODO: add to appointment
+    addAppointment({
+      name: route.params.name,
+      date: day,
+      time: time,
+      description: type
+    });
     hideDialog();
   };
 
