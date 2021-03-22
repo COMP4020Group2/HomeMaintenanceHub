@@ -80,8 +80,8 @@ const UserProfileScreen = ({ navigation }) => {
           })
         }
       >
-        <Text style={styles.Title}>Your Reviews</Text>
-        {reviews.map((review, index) => (
+        <Text style={styles.Title}>Your Top 2 Reviews</Text>
+        {reviews.slice(0, 2).map((review, index) => (
           <ReviewCard key={index} reviewInfo={review} />
         ))}
       </TouchableOpacity>
@@ -91,15 +91,16 @@ const UserProfileScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   Container: {
-    flex: 1,
+    flex: 3,
     justifyContent: 'flex-start'
   },
   infoForm: {
-    flex: 1,
+    flex: 2,
     justifyContent: 'flex-start',
     alignItems: 'center'
   },
   userReviews: {
+    flex: 1,
     justifyContent: 'center',
     marginLeft: 10
   },

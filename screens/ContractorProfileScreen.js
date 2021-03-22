@@ -65,25 +65,21 @@ const ContractorProfileScreen = ({ navigation, route }) => {
           })
         }
       >
-        <Text style={styles.aboutTitle}>
-          {reviews?.length} Review{reviews?.length !== 1 ? 's' : ''}
-        </Text>
-        {reviews?.map((review, index) => (
+        <Text style={styles.aboutTitle}>Top 3 Reviews</Text>
+        {reviews?.slice(0, 3).map((review, index) => (
           <ReviewCard key={index} reviewInfo={review} />
         ))}
-        <View style={styles.fabContainer}>
-          <FAB
-            color={'blue'}
-            style={styles.fab}
-            icon={'plus'}
-            onPress={() =>
-              navigation.navigate('Add Review', {
-                contractor: contractorInfo.name
-              })
-            }
-          />
-        </View>
       </TouchableOpacity>
+      <FAB
+        color={'blue'}
+        style={styles.fab}
+        icon={'plus'}
+        onPress={() =>
+          navigation.navigate('Add Review', {
+            contractorInfo: contractorInfo
+          })
+        }
+      />
 
       <View style={styles.reviewBox}>
         <Text style={styles.photoTitle}>Photos</Text>
@@ -123,6 +119,7 @@ const styles = StyleSheet.create({
     marginHorizontal: '5%',
     marginVertical: '2%',
     marginBottom: '1%',
+    marginTop: 20,
     width: '90%',
     height: '5%'
   },
@@ -243,11 +240,10 @@ const styles = StyleSheet.create({
     flex: 1
   },
   fab: {
-    width: '15%'
-  },
-  fabContainer: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end'
+    width: 56,
+    position: 'absolute',
+    right: 10,
+    bottom: 140
   }
 });
 

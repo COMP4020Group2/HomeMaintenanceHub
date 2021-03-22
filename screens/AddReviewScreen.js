@@ -6,11 +6,18 @@ import { getUser } from '../stubs/user.js';
 
 const AddReviewScreen = ({ navigation, route }) => {
   const [body, setBody] = useState('');
-  const [stars, setStars] = useState(0);
+  const [stars, setStars] = useState('');
 
   const save = () => {
-    addReview(getUser().name, route.contractor, stars, body);
-    navigation.goBack();
+    addReview(
+      getUser().name,
+      route.params.contractorInfo.name,
+      parseInt(stars),
+      body
+    );
+    navigation.navigate('Contractor Profile', {
+      ...route.params.contractorInfo
+    });
   };
 
   return (
@@ -47,7 +54,7 @@ const styles = StyleSheet.create({
   },
   reviewInput: {
     width: '90%',
-    height: '50%'
+    height: 300
   }
 });
 
