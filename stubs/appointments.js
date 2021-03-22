@@ -32,6 +32,5 @@ module.exports = {
     appointment.id = nextId;
     nextId++;
     appointments.push(appointment);
-    console.log(appointments)
   }
 };
