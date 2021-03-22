@@ -1,6 +1,5 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
 import SearchScreen from '../SearchScreen';
 import SearchResultsScreen from '../SearchResultsScreen';
 import ContractorProfileScreen from '../ContractorProfileScreen';

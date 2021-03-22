@@ -1,6 +1,5 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
 import HistoryScreen from '../HistoryScreen';
 import PastOrderDetailsScreen from '../PastOrderDetailsScreen';
 import BookScreen from '../BookScreen';
