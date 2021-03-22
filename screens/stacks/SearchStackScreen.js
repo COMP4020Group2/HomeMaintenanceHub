@@ -7,12 +7,26 @@ import ContractorProfileScreen from '../ContractorProfileScreen';
 import BookScreen from '../BookScreen';
 import ContractorReviewsScreen from '../ContractorReviewsScreen';
 import AddReviewScreen from '../AddReviewScreen';
+import { theme } from '../../styles'
 
 const SearchStack = createStackNavigator();
 
 const SearchStackScreen = ({ navigation }) => {
   return (
-    <SearchStack.Navigator>
+    <SearchStack.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: theme.colors.dark
+        },
+        cardStyle: {
+          backgroundColor: theme.colors.dark
+        },
+        headerTintColor: '#FFF',
+        headerTitleStyle: {
+          fontWeight: 'bold'
+        }
+      }}
+    >
       <SearchStack.Screen name="Search" component={SearchScreen} />
       <SearchStack.Screen
         name="Search Results"

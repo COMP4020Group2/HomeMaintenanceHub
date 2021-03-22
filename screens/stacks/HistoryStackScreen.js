@@ -4,12 +4,23 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 import HistoryScreen from '../HistoryScreen';
 import PastOrderDetailsScreen from '../PastOrderDetailsScreen';
 import BookScreen from '../BookScreen';
+import { theme } from '../../styles';
 
 const HistoryStack = createStackNavigator();
 
 const HistoryStackScreen = ({ navigation }) => {
   return (
-    <HistoryStack.Navigator>
+    <HistoryStack.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: theme.colors.dark
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold'
+        }
+      }}
+    >
       <HistoryStack.Screen name="History" component={HistoryScreen} />
       <HistoryStack.Screen
         name="PastOrderDetails"

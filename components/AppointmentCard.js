@@ -1,47 +1,43 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Text } from 'react-native-paper';
+import { Text, Card } from 'react-native-paper';
+import { commonStyles, theme } from '../styles';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const AppointmentCard = ({ appointment }) => {
   return (
-    <View style={styles.entryBox}>
-      <Text style={styles.entryText}>{appointment.name}</Text>
-      <Text style={styles.dateText}>{appointment.date}</Text>
-      <Text style={styles.timeText}>{appointment.time}</Text>
-      <Text style={styles.descriptionText}>{appointment.description}</Text>
-    </View>
+    <Card style={{...styles.entryBox, ...commonStyles.Card}}>
+      <Card.Title titleStyle={styles.entryText} title={appointment.name} subtitle={appointment.description} subtitleStyle={styles.Text}></Card.Title>
+      <Card.Content style={styles.Info}>
+        <MaterialCommunityIcons name="clock" color={'#FFF'} size={26} />
+        <Text style={styles.Text}>{appointment.date}</Text>
+        <MaterialCommunityIcons name="calendar" color={'#FFF'} size={26} />
+        <Text style={styles.Text}>{appointment.time}</Text>
+      </Card.Content>
+    </Card>
   );
 };
 
 const styles = StyleSheet.create({
   entryBox: {
-    paddingVertical: 10,
-    paddingHorizontal: 10,
-    backgroundColor: '#FFFFFF',
     marginHorizontal: '5%',
     marginVertical: '3%',
     width: '90%'
   },
   entryText: {
-    color: 'black',
+    color: '#FFF',
     fontWeight: 'bold',
     fontSize: 18,
     textAlign: 'left'
   },
-  dateText: {
-    color: 'black',
+  Text: {
+    ...commonStyles.Text,
     fontSize: 16,
-    textAlign: 'left'
+    textAlign: 'left',
   },
-  timeText: {
-    color: 'black',
-    fontSize: 18,
-    textAlign: 'left'
-  },
-  descriptionText: {
-    color: 'black',
-    fontSize: 18,
-    textAlign: 'left'
+  Info: {
+    flexDirection: 'row',
+    justifyContent: 'space-between'
   }
 });
 

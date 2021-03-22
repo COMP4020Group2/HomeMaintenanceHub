@@ -8,27 +8,21 @@ import UserProfileStackScreen from './screens/stacks/UserProfileStackScreen';
 import AppointmentsStackScreen from './screens/stacks/AppointmentsStackScreen';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { DefaultTheme, Provider } from 'react-native-paper';
+import { Provider } from 'react-native-paper';
+import { theme } from './styles';
 
 const NavBar = createMaterialBottomTabNavigator();
-const theme = {
-  ...DefaultTheme,
-  roundness: 2,
-  colors: {
-    ...DefaultTheme.colors,
-    primary: '#2194f2'
-  }
-};
+
 export default function App() {
   return (
     <Provider theme={theme}>
       <NavigationContainer>
         <NavBar.Navigator
           initialRouteName="Search"
-          activeColor="#fff"
+          activeColor="#71A2B6"
           inactiveColor="#fff"
           labeled
-          barStyle={{ backgroundColor: theme.colors.primary }}
+          barStyle={{ backgroundColor: theme.colors.dark, borderTopColor: theme.colors.accent, borderTopWidth: 1 }}
         >
           <NavBar.Screen
             name="Search"
@@ -89,3 +83,4 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({});
+
