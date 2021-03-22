@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { TextInput, Avatar, FAB } from 'react-native-paper';
 import { getUserReviews } from '../stubs/reviews.js';
 import userStub from '../stubs/user.js';
@@ -72,12 +72,19 @@ const UserProfileScreen = ({ navigation }) => {
           onPress={editing ? update : startEditing}
         />
       </View>
-      <View style={styles.userReviews}>
+      <TouchableOpacity
+        style={styles.userReviews}
+        onPress={() =>
+          navigation.navigate('User Reviews', {
+            reviews: reviews
+          })
+        }
+      >
         <Text style={styles.Title}>Your Reviews</Text>
         {reviews.map((review, index) => (
           <ReviewCard key={index} reviewInfo={review} />
         ))}
-      </View>
+      </TouchableOpacity>
     </View>
   );
 };

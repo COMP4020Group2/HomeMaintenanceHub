@@ -1,14 +1,14 @@
-import React from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
-import { Avatar } from "react-native-paper";
-import { buildStars } from "../utils/stringUtils";
-import { getUserContractorReview } from "../stubs/reviews";
-import { getUser } from "../stubs/user";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import { TouchableOpacity } from "react-native";
-import { updateOrder } from '../stubs/pastorders'
-import { color } from "react-native-reanimated";
-import { useState } from "react";
+import React from 'react';
+import { StyleSheet, Text, View, Button } from 'react-native';
+import { Avatar } from 'react-native-paper';
+import { buildStars } from '../utils/stringUtils';
+import { getUserContractorReview } from '../stubs/reviews';
+import { getUser } from '../stubs/user';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { TouchableOpacity } from 'react-native';
+import { updateOrder } from '../stubs/pastorders';
+import { color } from 'react-native-reanimated';
+import { useState } from 'react';
 
 const PastOrderDetailsScreen = ({ navigation, route }) => {
   const reviewResponse = getUserContractorReview(
@@ -16,9 +16,9 @@ const PastOrderDetailsScreen = ({ navigation, route }) => {
     route.params.name
   );
   let myReview = reviewResponse[0];
-  const [positive,setPositive] = useState(route.params.positive);
+  const [positive, setPositive] = useState(route.params.positive);
 
-  const pressPositiveButton = ()=>{
+  const pressPositiveButton = () => {
     route.params.positive = true;
     setPositive(true);
     let order = {
@@ -27,11 +27,11 @@ const PastOrderDetailsScreen = ({ navigation, route }) => {
       date: route.params.date,
       price: route.params.price,
       positive: true
-    }
+    };
     updateOrder(order);
-  }
+  };
 
-  const pressNegativeButton = ()=>{
+  const pressNegativeButton = () => {
     route.params.positive = false;
     setPositive(false);
     let order = {
@@ -40,10 +40,9 @@ const PastOrderDetailsScreen = ({ navigation, route }) => {
       date: route.params.date,
       price: route.params.price,
       positive: false
-    }
+    };
     updateOrder(order);
-
-  }
+  };
 
   return (
     <View>
@@ -51,7 +50,7 @@ const PastOrderDetailsScreen = ({ navigation, route }) => {
         <View style={styles.row}>
           <Avatar.Image
             size={90}
-            source={require("../images/brett.jpg")}
+            source={require('../images/brett.jpg')}
             style={styles.Avatar}
           />
         </View>
@@ -66,39 +65,37 @@ const PastOrderDetailsScreen = ({ navigation, route }) => {
       </View>
       {reviewResponse.length > 0 ? (
         <View style={styles.Box}>
-          <Text style={{ fontWeight: "bold", fontSize: 14 }}>Your Review</Text>
-          <View style={{ flexDirection: "row" }}>
+          <Text style={{ fontWeight: 'bold', fontSize: 14 }}>Your Review</Text>
+          <View style={{ flexDirection: 'row' }}>
             <Text style={styles.reviewStars}>{buildStars(myReview.stars)}</Text>
-            <Text style={{ textAlign: "right" }}>{route.params.date}</Text>
+            <Text style={{ textAlign: 'right' }}>{route.params.date}</Text>
           </View>
           <Text>{myReview.body}</Text>
         </View>
       ) : (
         <View style={styles.Box}>
-          <Text style={{ fontWeight: "bold", fontSize: 14 }}>No Review</Text>
-          <Button title="Leave A Review"/>
+          <Text style={{ fontWeight: 'bold', fontSize: 14 }}>No Review</Text>
+          <Button title="Leave A Review" />
         </View>
       )}
 
       <View style={styles.Box}>
-        <Text style={{ fontWeight: "bold" }}>Recommended?</Text>
-        <View style={{ flexDirection: "row" }}>
+        <Text style={{ fontWeight: 'bold' }}>Recommended?</Text>
+        <View style={{ flexDirection: 'row' }}>
           <TouchableOpacity style={styles.icons} onPress={pressPositiveButton}>
-          <MaterialCommunityIcons
-            
-            name="check-circle-outline"
-            color={positive ? "green" : "grey"}
-            size={100}
-          />
+            <MaterialCommunityIcons
+              name="check-circle-outline"
+              color={positive ? 'green' : 'grey'}
+              size={100}
+            />
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.icons} onPress={pressNegativeButton}>
-          <MaterialCommunityIcons
-            
-            name="close-circle-outline"
-            color={positive ? "grey" : "red"}
-            size={100}
-          />
+            <MaterialCommunityIcons
+              name="close-circle-outline"
+              color={positive ? 'grey' : 'red'}
+              size={100}
+            />
           </TouchableOpacity>
         </View>
       </View>
@@ -106,30 +103,30 @@ const PastOrderDetailsScreen = ({ navigation, route }) => {
         <Text style={styles.buttonText}>Full Invoice</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('Book')}
+        style={styles.button}
+      >
         <Text style={styles.buttonText}>Book Again</Text>
       </TouchableOpacity>
-
-
     </View>
   );
 };
-
 
 export default PastOrderDetailsScreen;
 
 const styles = StyleSheet.create({
   headerBox: {
-    marginTop: "5%",
-    marginLeft: "5%",
-    justifyContent: "space-between",
-    flexDirection: "row",
+    marginTop: '5%',
+    marginLeft: '5%',
+    justifyContent: 'space-between',
+    flexDirection: 'row'
   },
   icons: {
-    marginLeft: "12%",
+    marginLeft: '12%'
   },
   button: {
-    marginTop:"10%",
+    marginTop: '10%',
     borderRadius: 8,
     paddingVertical: 20,
     paddingHorizontal: 10,
@@ -145,50 +142,50 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   reviewStars: {
-    color: "#2196F3",
-    width: "68%",
+    color: '#2196F3',
+    width: '68%'
   },
   Box: {
-    marginLeft: "5%",
-    marginTop: "10%",
-    marginRight: "5%",
-    justifyContent: "space-between",
-    backgroundColor: "white",
+    marginLeft: '5%',
+    marginTop: '10%',
+    marginRight: '5%',
+    justifyContent: 'space-between',
+    backgroundColor: 'white'
   },
   row: {
-    flex: 1,
+    flex: 1
   },
   headerTitle: {
-    justifyContent: "center",
-    marginRight: "6%",
+    justifyContent: 'center',
+    marginRight: '6%'
   },
   entryText: {
-    color: "black",
-    fontWeight: "bold",
+    color: 'black',
+    fontWeight: 'bold',
     fontSize: 18,
-    textAlign: "left",
-    marginLeft: "22%",
+    textAlign: 'left',
+    marginLeft: '22%'
   },
   headerRow: {
-    flexDirection: "row",
+    flexDirection: 'row'
   },
   jobMetadata: {
-    color: "black",
+    color: 'black',
     fontSize: 14,
-    textAlign: "left",
-    marginLeft: "22%",
+    textAlign: 'left',
+    marginLeft: '22%'
   },
   priceMetadata: {
-    color: "green",
+    color: 'green',
     fontSize: 14,
-    textAlign: "left",
-    marginLeft: "22%",
+    textAlign: 'left',
+    marginLeft: '22%'
   },
   dateMetadata: {
-    color: "black",
+    color: 'black',
     fontSize: 14,
-    textAlign: "left",
-    marginLeft: "22%",
-    textTransform: "capitalize",
-  },
+    textAlign: 'left',
+    marginLeft: '22%',
+    textTransform: 'capitalize'
+  }
 });

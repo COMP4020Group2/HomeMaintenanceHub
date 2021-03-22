@@ -3,6 +3,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import HistoryScreen from '../HistoryScreen';
 import PastOrderDetailsScreen from '../PastOrderDetailsScreen';
+import BookScreen from '../BookScreen';
 
 const HistoryStack = createStackNavigator();
 
@@ -14,6 +15,7 @@ const HistoryStackScreen = ({ navigation }) => {
         name="PastOrderDetails"
         component={PastOrderDetailsScreen}
       />
+      <HistoryStack.Screen name="Book" component={BookScreen} />
     </HistoryStack.Navigator>
   );
 };
