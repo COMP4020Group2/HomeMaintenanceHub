@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
 import { Text } from 'react-native-paper';
 import HistoryCard from '../components/HistoryCard';
 import { getAllPastOrders } from '../stubs/pastorders';
@@ -35,7 +35,7 @@ const HistoryScreen = ({ navigation }) => {
           { label: 'Past Month', value: 'pastMonth' }
         ]}
       />
-      <View style={styles.historyEntries}>
+      <ScrollView style={styles.historyEntries}>
         {orders?.map((history, index) => (
           <HistoryCard
             key={index}
@@ -43,7 +43,7 @@ const HistoryScreen = ({ navigation }) => {
             navigate={navigation.navigate}
           />
         ))}
-      </View>
+      </ScrollView>
     </View>
   );
 };
