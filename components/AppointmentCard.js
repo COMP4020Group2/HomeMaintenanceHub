@@ -20,8 +20,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     marginHorizontal: '5%',
     marginVertical: '3%',
-    width: '90%',
-    height: '22%'
+    width: '90%'
   },
   entryText: {
     color: 'black',
