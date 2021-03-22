@@ -46,7 +46,6 @@ module.exports = {
   },
   getPastOrder(range) {},
   updateOrder(order) {
-    console.log(order);
     for (let x = 0; x < pastOrders.length; x++) {
       if (order.id === pastOrders[x].id) {
         pastOrders[x] = order;

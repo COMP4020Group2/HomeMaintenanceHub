@@ -1,17 +1,19 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
 import ReviewCard from '../components/ReviewCard';
 
 const UserReviewsScreen = ({ navigation, route }) => {
   return (
     <View style={styles.container}>
-      {route.params.reviews.map((review, index) => (
-        <ReviewCard
-          reviewInfo={review}
-          key={index}
-          navigate={navigation.navigate}
-        />
-      ))}
+      <ScrollView>
+        {route.params.reviews.map((review, index) => (
+          <ReviewCard
+            reviewInfo={review}
+            key={index}
+            navigate={navigation.navigate}
+          />
+        ))}
+      </ScrollView>
     </View>
   );
 };

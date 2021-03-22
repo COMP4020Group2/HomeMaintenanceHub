@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { useIsFocused } from '@react-navigation/native';
 import { StyleSheet, View, ScrollView } from 'react-native';
 import AppointmentCard from '../components/AppointmentCard';

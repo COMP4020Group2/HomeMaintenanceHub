@@ -22,7 +22,11 @@ export default function App() {
           activeColor="#71A2B6"
           inactiveColor="#fff"
           labeled
-          barStyle={{ backgroundColor: theme.colors.dark, borderTopColor: theme.colors.accent, borderTopWidth: 1 }}
+          barStyle={{
+            backgroundColor: theme.colors.dark,
+            borderTopColor: theme.colors.accent,
+            borderTopWidth: 1
+          }}
         >
           <NavBar.Screen
             name="Search"
@@ -81,6 +85,3 @@ export default function App() {
     </Provider>
   );
 }
-
-const styles = StyleSheet.create({});
-

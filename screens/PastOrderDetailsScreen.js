@@ -7,7 +7,6 @@ import { getUser } from '../stubs/user';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { TouchableOpacity } from 'react-native';
 import { updateOrder } from '../stubs/pastorders';
-import { color } from 'react-native-reanimated';
 import { useState } from 'react';
 
 const PastOrderDetailsScreen = ({ navigation, route }) => {
