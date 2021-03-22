@@ -17,7 +17,6 @@ const HistoryScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.labelText}>Show Results From:</Text>
       <DropDownPicker
         onChangeItem={(item) => setSelectedDate(item.value)}
         containerStyle={{ height: 40, marginHorizontal: 18 }}
@@ -50,7 +49,7 @@ const HistoryScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: '5%'
+    marginTop: 10
   },
   labelText: {
     fontWeight: 'bold',

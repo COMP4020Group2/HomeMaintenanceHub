@@ -6,7 +6,8 @@ import ContractorProfileScreen from '../ContractorProfileScreen';
 import BookScreen from '../BookScreen';
 import ContractorReviewsScreen from '../ContractorReviewsScreen';
 import AddReviewScreen from '../AddReviewScreen';
-import { theme } from '../../styles'
+import UpcomingAppointmentsScreen from '../UpcomingAppointmentsScreen';
+import { theme } from '../../styles';
 
 const SearchStack = createStackNavigator();
 

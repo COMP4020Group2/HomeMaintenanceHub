@@ -9,7 +9,7 @@ const HistoryCard = ({ history, navigate }) => {
   return (
     <Card
       style={{ ...styles.entryBox, ...commonStyles.Card }}
-      onPress={() => navigate('PastOrderDetails', { ...history })}
+      onPress={() => navigate('Past Order Details', { ...history })}
     >
       <Card.Title titleStyle={styles.entryText} title={history.name} />
       <Card.Content style={styles.cardContent}>

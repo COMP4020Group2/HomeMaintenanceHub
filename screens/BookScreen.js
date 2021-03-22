@@ -1,14 +1,16 @@
-import React, {useState} from 'react';
-import {View, TouchableOpacity} from 'react-native';
-import {Agenda} from 'react-native-calendars';
-import {Card, Text, Portal, Dialog, Button} from 'react-native-paper';
+import React, { useState } from 'react';
+import { View, TouchableOpacity } from 'react-native';
+import { Agenda } from 'react-native-calendars';
+import { Card, Text, Portal, Dialog, Button } from 'react-native-paper';
 import { getAvailabilities } from '../stubs/availabilities';
 import { addAppointment } from '../stubs/appointments';
 
 const getMonday = (day) => {
   const date = new Date(day.timestamp);
   let d = date.getDay();
-  if (d === 6) { d = -1; }
+  if (d === 6) {
+    d = -1;
+  }
   date.setDate(date.getDate() - d);
 
   return date;
@@ -17,15 +19,15 @@ const getMonday = (day) => {
 const BookScreen = ({ navigation, route }) => {
   const [items, setItems] = useState({});
   const [dialogVisible, setDialogVisible] = useState(false);
-  const [time, setTime] = useState("");
-  const [type, setType] = useState("");
-  const [day, setDay] = useState("");
+  const [time, setTime] = useState('');
+  const [type, setType] = useState('');
+  const [day, setDay] = useState('');
 
   const showDialog = (time, type) => {
     setTime(time);
     setType(type);
     setDialogVisible(true);
-  }
+  };
 
   const hideDialog = () => setDialogVisible(false);
 
@@ -34,47 +36,47 @@ const BookScreen = ({ navigation, route }) => {
   };
 
   const formatDate = (day) => {
-    let month = "";
-    switch(day.month) {
+    let month = '';
+    switch (day.month) {
       case 1:
-        month = 'January'
+        month = 'January';
         break;
       case 2:
-        month = 'February'
+        month = 'February';
         break;
       case 3:
-        month = 'March'
+        month = 'March';
         break;
       case 4:
-        month = 'April'
+        month = 'April';
         break;
       case 5:
-        month = 'May'
+        month = 'May';
         break;
       case 6:
-        month = 'June'
+        month = 'June';
         break;
       case 7:
-        month = 'July'
+        month = 'July';
         break;
       case 8:
-        month = 'August'
+        month = 'August';
         break;
       case 9:
-        month = 'September'
+        month = 'September';
         break;
       case 10:
-        month = 'October'
+        month = 'October';
         break;
       case 11:
-        month = 'November'
+        month = 'November';
         break;
       case 12:
-        month = 'December'
+        month = 'December';
         break;
     }
     return `${month} ${day.day}, ${day.year}`;
-  }
+  };
 
   const bookAppointment = () => {
     addAppointment({
@@ -84,19 +86,25 @@ const BookScreen = ({ navigation, route }) => {
       description: type
     });
     hideDialog();
+    navigation.popToTop();
+    navigation.navigate('Upcoming Appointments');
   };
 
   const renderItem = (item) => {
     return (
-      <TouchableOpacity style={{marginRight: 10, marginTop: 30, height: 60}} onPress={() => showDialog(item.time, item.type)}>
-        <Card style={{height: '100%'}}>
+      <TouchableOpacity
+        style={{ marginRight: 10, marginTop: 30, height: 60 }}
+        onPress={() => showDialog(item.time, item.type)}
+      >
+        <Card style={{ height: '100%' }}>
           <Card.Content>
             <View
               style={{
                 flexDirection: 'row',
                 justifyContent: 'space-between',
-                alignItems: 'center',
-              }}>
+                alignItems: 'center'
+              }}
+            >
               <Text>{item.time}</Text>
               <Text>{item.type}</Text>
             </View>
@@ -107,21 +115,25 @@ const BookScreen = ({ navigation, route }) => {
   };
 
   return (
-    <View style={{flex: 1}}>
+    <View style={{ flex: 1 }}>
       <Agenda
         minDate={new Date()}
         items={items}
         loadItemsForMonth={loadItems}
         selected={new Date()}
         renderItem={renderItem}
-        onDayPress={(day) => {setDay(formatDate(day))}}
+        onDayPress={(day) => {
+          setDay(formatDate(day));
+        }}
       />
       <Portal>
         <Dialog visible={dialogVisible} onDismiss={hideDialog}>
           <Dialog.Title>Confirm</Dialog.Title>
           <Dialog.Content>
             <Text>Book Appointment for {type} on:</Text>
-            <Text>{day} at {time}?</Text>
+            <Text>
+              {day} at {time}?
+            </Text>
           </Dialog.Content>
           <Dialog.Actions>
             <Button onPress={hideDialog}>Cancel</Button>

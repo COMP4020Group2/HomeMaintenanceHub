@@ -17,12 +17,15 @@ const HistoryStackScreen = ({ navigation }) => {
         headerTintColor: '#fff',
         headerTitleStyle: {
           fontWeight: 'bold'
+        },
+        cardStyle: {
+          backgroundColor: theme.colors.dark
         }
       }}
     >
       <HistoryStack.Screen name="History" component={HistoryScreen} />
       <HistoryStack.Screen
-        name="PastOrderDetails"
+        name="Past Order Details"
         component={PastOrderDetailsScreen}
       />
       <HistoryStack.Screen name="Book" component={BookScreen} />

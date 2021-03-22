@@ -247,5 +247,11 @@ module.exports = {
       (contractor) =>
         contractor.category.toLowerCase() === category.toLowerCase()
     );
+  },
+  getContractor(name) {
+    setStars();
+    return contractors.filter(
+      (contractor) => contractor.name.toLowerCase() === name.toLowerCase()
+    )[0];
   }
 };

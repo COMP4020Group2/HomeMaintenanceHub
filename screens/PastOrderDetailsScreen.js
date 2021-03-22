@@ -8,6 +8,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import { TouchableOpacity } from 'react-native';
 import { updateOrder } from '../stubs/pastorders';
 import { useState } from 'react';
+import { getContractor } from '../stubs/contractors';
 
 const PastOrderDetailsScreen = ({ navigation, route }) => {
   const reviewResponse = getUserContractorReview(
@@ -103,7 +104,10 @@ const PastOrderDetailsScreen = ({ navigation, route }) => {
       </TouchableOpacity>
 
       <TouchableOpacity
-        onPress={() => navigation.navigate('Book')}
+        onPress={() => {
+          let contractor = getContractor(route.params.name);
+          navigation.navigate('Book', { ...contractor });
+        }}
         style={styles.button}
       >
         <Text style={styles.buttonText}>Book Again</Text>
