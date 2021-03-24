@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 import { DefaultTheme } from 'react-native-paper';
 
 const theme = {
@@ -8,21 +8,31 @@ const theme = {
     ...DefaultTheme.colors,
     primary: '#60B2E5',
     dark: '#1E1E24',
-    secondary: '#FC6471',
+    secondary: '#71A2B6',
     accent: '#71A2B6'
   }
 };
 
 const commonStyles = StyleSheet.create({
   Card: {
-    backgroundColor: '#4f5b62',
+    backgroundColor: 'white',
     borderRadius: 5,
+    borderColor: 'black',
     paddingHorizontal: 10,
     paddingVertical: 10,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 6
+    },
+    shadowOpacity: 0.37,
+    shadowRadius: 7.49,
+
+    elevation: 12
   },
   Text: {
-    color: 'white'
+    color: theme.colors.dark
   }
 });
 
-export {commonStyles, theme};
+export { commonStyles, theme };

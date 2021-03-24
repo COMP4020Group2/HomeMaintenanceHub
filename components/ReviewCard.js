@@ -1,46 +1,49 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Text } from 'react-native-paper';
+import { Card, Text } from 'react-native-paper';
 import { buildStars } from '../utils/stringUtils';
+import { commonStyles, theme } from '../styles';
 
 const ReviewCard = ({ reviewInfo }) => {
   return (
-    <View style={styles.card}>
-      <View style={styles.reviewTitle}>
-        <Text style={styles.reviewName}>{reviewInfo.reviewer}</Text>
-        <Text style={styles.reviewDate}>{reviewInfo.date}</Text>
-      </View>
-      <Text style={styles.ratingText}>{buildStars(reviewInfo.stars)}</Text>
-      <Text style={styles.reviewBody}>{reviewInfo.body}</Text>
-    </View>
+    <Card style={styles.card}>
+      <Card.Title
+        title={reviewInfo.reviewer}
+        subtitle={`${buildStars(reviewInfo.stars)} ${reviewInfo.date}`}
+        subtitleStyle={styles.subtitle}
+        titleStyle={styles.title}
+      />
+      <Card.Content style={styles.cardContent}>
+        <Text></Text>
+        <Text>{reviewInfo.body}</Text>
+      </Card.Content>
+    </Card>
   );
 };
 
 const styles = StyleSheet.create({
   card: {
-    marginBottom: 10,
-    paddingLeft: 10,
-    width: '90%'
+    padding: 0,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 6
+    },
+    shadowOpacity: 0.37,
+    shadowRadius: 7.49,
+    elevation: 12,
+    marginBottom: 5,
+    width: '100%',
+    borderRadius: 5
   },
-  reviewDate: {
-    fontSize: 10,
-    textAlign: 'right'
+  subtitle: {
+    color: 'black'
   },
-  reviewName: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    width: '70%'
+  cardContent: {
+    marginTop: -30
   },
-  reviewTitle: {
-    flexDirection: 'row',
-    fontSize: 12
-  },
-  reviewBox: {
-    marginLeft: '5%',
-    marginTop: '5%',
-    marginRight: '5%',
-    justifyContent: 'space-between',
-    backgroundColor: 'white'
+  title: {
+    fontSize: 14
   }
 });
 

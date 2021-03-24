@@ -4,17 +4,15 @@ import ReviewCard from '../components/ReviewCard';
 
 const UserReviewsScreen = ({ navigation, route }) => {
   return (
-    <View style={styles.container}>
-      <ScrollView>
-        {route.params.reviews.map((review, index) => (
-          <ReviewCard
-            reviewInfo={review}
-            key={index}
-            navigate={navigation.navigate}
-          />
-        ))}
-      </ScrollView>
-    </View>
+    <ScrollView contentContainerStyle={styles.container}>
+      {route.params.reviews.map((review, index) => (
+        <ReviewCard
+          reviewInfo={review}
+          key={index}
+          navigate={navigation.navigate}
+        />
+      ))}
+    </ScrollView>
   );
 };
 
@@ -22,12 +20,9 @@ const styles = StyleSheet.create({
   container: {
     marginTop: '3%',
     flex: 1,
-    alignItems: 'center'
-  },
-  fab: {
-    position: 'absolute',
-    bottom: 10,
-    right: 10
+    alignItems: 'center',
+    paddingHorizontal: 10,
+    height: '100%'
   }
 });
 

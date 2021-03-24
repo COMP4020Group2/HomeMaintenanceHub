@@ -14,18 +14,30 @@ const HistoryCard = ({ history, navigate }) => {
       <Card.Title titleStyle={styles.entryText} title={history.name} />
       <Card.Content style={styles.cardContent}>
         <View style={styles.info}>
-          <MaterialCommunityIcons name="calendar" color={'#FFF'} size={26} />
+          <MaterialCommunityIcons
+            name="calendar"
+            color={theme.colors.dark}
+            size={26}
+          />
           <Text style={styles.dateText}>{history.date}</Text>
           <Text style={styles.priceText}>{'$' + history.price}</Text>
-        </View>
-        <View style={styles.iconView}>
-          <MaterialCommunityIcons
-            name={
-              history.positive ? 'check-circle-outline' : 'close-circle-outline'
-            }
-            color={history.positive ? 'green' : 'red'}
-            size={40}
-          />
+
+          <View style={styles.iconView}>
+            <MaterialCommunityIcons
+              name={
+                history.positive
+                  ? 'check-circle-outline'
+                  : 'close-circle-outline'
+              }
+              color={history.positive ? 'green' : 'red'}
+              size={40}
+            />
+            <MaterialCommunityIcons
+              name={'chevron-right'}
+              color={theme.colors.dark}
+              size={40}
+            />
+          </View>
         </View>
       </Card.Content>
     </Card>
@@ -43,12 +55,14 @@ const styles = StyleSheet.create({
   },
   info: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: '80%'
+    width: '60%',
+    justifyContent: 'space-between'
   },
   iconView: {
-    alignItems: 'center',
-    justifyContent: 'center'
+    position: 'absolute',
+    right: -150,
+    top: -20,
+    flexDirection: 'row'
   },
   entryText: {
     color: 'black',
@@ -58,7 +72,7 @@ const styles = StyleSheet.create({
   },
   dateText: {
     color: 'black',
-    fontSize: 16,
+    fontSize: 18,
     textAlign: 'left'
   },
   priceText: {

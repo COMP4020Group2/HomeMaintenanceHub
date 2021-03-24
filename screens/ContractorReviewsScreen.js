@@ -1,11 +1,11 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
 import ReviewCard from '../components/ReviewCard';
-import { FAB } from 'react-native-paper';
+import { Card, FAB } from 'react-native-paper';
 
 const ContractorReviewsScreen = ({ navigation, route }) => {
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       {route.params.reviews.map((review, index) => (
         <ReviewCard
           reviewInfo={review}
@@ -23,19 +23,21 @@ const ContractorReviewsScreen = ({ navigation, route }) => {
           });
         }}
       />
-    </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: '3%',
-    flex: 1,
+    marginTop: 10,
+    height: '100%',
+    width: '100%',
+    padding: 10,
     alignItems: 'center'
   },
   fab: {
     position: 'absolute',
-    bottom: 10,
+    bottom: 20,
     right: 10
   }
 });

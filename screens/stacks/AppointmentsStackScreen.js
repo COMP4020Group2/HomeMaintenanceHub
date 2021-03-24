@@ -14,7 +14,7 @@ const AppointmentsStackScreen = ({ navigation }) => {
           backgroundColor: theme.colors.dark
         },
         cardStyle: {
-          backgroundColor: theme.colors.dark
+          backgroundColor: 'white'
         },
         headerTintColor: '#fff',
         headerTitleStyle: {

@@ -19,7 +19,7 @@ const SearchStackScreen = ({ navigation }) => {
           backgroundColor: theme.colors.dark
         },
         cardStyle: {
-          backgroundColor: theme.colors.dark
+          backgroundColor: 'white'
         },
         headerTintColor: '#FFF',
         headerTitleStyle: {

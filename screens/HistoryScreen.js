@@ -49,16 +49,14 @@ const HistoryScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 10
+    marginTop: 10,
+    backgroundColor: 'white',
+    height: '100%'
   },
   labelText: {
     fontWeight: 'bold',
     fontSize: 18,
     marginHorizontal: 18
-  },
-  pickerContainer: {
-    marginHorizontal: 18,
-    zIndex: 1000
   },
   historyEntries: {
     height: '89%'

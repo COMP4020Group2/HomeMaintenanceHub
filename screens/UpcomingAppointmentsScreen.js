@@ -12,19 +12,19 @@ const UpcomingAppointmentsScreen = ({ navigation }) => {
   }, [isFocused]);
 
   return (
-    <View style={styles.container}>
-      <ScrollView>
-        {appointments.map((appointment, index) => (
-          <AppointmentCard key={index} appointment={appointment} />
-        ))}
-      </ScrollView>
-    </View>
+    <ScrollView style={styles.container}>
+      {appointments.map((appointment, index) => (
+        <AppointmentCard key={index} appointment={appointment} />
+      ))}
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 10
+    marginTop: 10,
+    height: '100%',
+    backgroundColor: 'white'
   }
 });
 

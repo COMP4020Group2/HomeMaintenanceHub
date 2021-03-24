@@ -19,7 +19,7 @@ const HistoryStackScreen = ({ navigation }) => {
           fontWeight: 'bold'
         },
         cardStyle: {
-          backgroundColor: theme.colors.dark
+          backgroundColor: 'white'
         }
       }}
     >

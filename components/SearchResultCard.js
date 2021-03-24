@@ -1,11 +1,12 @@
 import React from 'react';
 import { StyleSheet, View, TouchableOpacity } from 'react-native';
-import { Text, Avatar } from 'react-native-paper';
+import { Text, Avatar, Card } from 'react-native-paper';
+import { commonStyles } from '../styles';
 import { buildStars, buildDollars } from '../utils/stringUtils';
 
 const SearchResultCard = ({ contractorInfo, navigate }) => {
   return (
-    <TouchableOpacity
+    <Card
       style={styles.entryBox}
       onPress={() =>
         navigate('Contractor Profile', {
@@ -23,7 +24,7 @@ const SearchResultCard = ({ contractorInfo, navigate }) => {
       <Text style={styles.entryText}>{contractorInfo.name}</Text>
       <Text style={styles.rateText}>{buildStars(contractorInfo.stars)}</Text>
       <Text style={styles.priceText}>{buildDollars(contractorInfo.price)}</Text>
-    </TouchableOpacity>
+    </Card>
   );
 };
 
@@ -35,7 +36,7 @@ const styles = StyleSheet.create({
     marginHorizontal: '5%',
     marginVertical: '3%',
     width: '90%',
-    height: '16%'
+    ...commonStyles.Card
   },
   entryText: {
     color: 'black',

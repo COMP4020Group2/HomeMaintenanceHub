@@ -6,12 +6,25 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 const AppointmentCard = ({ appointment }) => {
   return (
-    <Card style={{...styles.entryBox, ...commonStyles.Card}}>
-      <Card.Title titleStyle={styles.entryText} title={appointment.name} subtitle={appointment.description} subtitleStyle={styles.Text}></Card.Title>
+    <Card style={{ ...styles.entryBox, ...commonStyles.Card }}>
+      <Card.Title
+        titleStyle={styles.entryText}
+        title={appointment.name}
+        subtitle={appointment.description}
+        subtitleStyle={styles.Text}
+      ></Card.Title>
       <Card.Content style={styles.Info}>
-        <MaterialCommunityIcons name="clock" color={'#FFF'} size={26} />
+        <MaterialCommunityIcons
+          name="clock"
+          color={theme.colors.dark}
+          size={26}
+        />
         <Text style={styles.Text}>{appointment.date}</Text>
-        <MaterialCommunityIcons name="calendar" color={'#FFF'} size={26} />
+        <MaterialCommunityIcons
+          name="calendar"
+          color={theme.colors.dark}
+          size={26}
+        />
         <Text style={styles.Text}>{appointment.time}</Text>
       </Card.Content>
     </Card>
@@ -25,7 +38,7 @@ const styles = StyleSheet.create({
     width: '90%'
   },
   entryText: {
-    color: '#FFF',
+    color: theme.colors.dark,
     fontWeight: 'bold',
     fontSize: 18,
     textAlign: 'left'
@@ -33,7 +46,7 @@ const styles = StyleSheet.create({
   Text: {
     ...commonStyles.Text,
     fontSize: 16,
-    textAlign: 'left',
+    textAlign: 'left'
   },
   Info: {
     flexDirection: 'row',
