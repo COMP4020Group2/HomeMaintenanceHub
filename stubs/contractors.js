@@ -4,10 +4,10 @@ let contractors = [
   {
     id: 1,
     category: 'carpentry',
-    name: "Brett's Premium Carpentry",
+    name: "Brett's Carpentry",
     description: 'I am a premium carpenter.',
     phone: '545-213-3245',
-    website: 'brettspremiumcarpentry.com',
+    website: 'brettscarpentry.com',
     image: '../images/brett.jpg',
     stars: 4,
     price: 3
@@ -15,10 +15,10 @@ let contractors = [
   {
     id: 2,
     category: 'carpentry',
-    name: "Brett's Mediocre Carpentry",
-    description: 'I am a mediocre carpenter.',
+    name: "Phil's Custom Carpentry",
+    description: 'I offer custom carpentry jobs.',
     phone: '125-242-3515',
-    website: 'brettsmediocrecarpentry.com',
+    website: 'philscustomrecarpentry.com',
     image: '../images/brett.jpg',
     stars: 4,
     price: 3
@@ -26,10 +26,10 @@ let contractors = [
   {
     id: 3,
     category: 'carpentry',
-    name: "Brett's Budget Carpentry",
+    name: "Jacob's Carpentry",
     description: 'I am a budget carpenter.',
     phone: '903-125-6932',
-    website: 'brettsbudgetcarpentry.com',
+    website: 'jacobscarpentry.com',
     image: '../images/brett.jpg',
     stars: 3,
     price: 1
@@ -37,10 +37,10 @@ let contractors = [
   {
     id: 4,
     category: 'carpentry',
-    name: "Brett's Bad Carpentry",
-    description: 'I am a bad carpenter.',
+    name: "Mack's Carpentry",
+    description: 'I am a local independent carpenter.',
     phone: '124-523-6547',
-    website: 'brettsbadcarpentry.com',
+    website: 'mackscarpentry.com',
     image: '../images/brett.jpg',
     stars: 3,
     price: 4
@@ -48,10 +48,10 @@ let contractors = [
   {
     id: 1,
     category: 'electrical',
-    name: "Brett's Premium Electrical",
+    name: "Brett's Electrical",
     description: 'I am a premium electrician.',
     phone: '545-213-3245',
-    website: 'brettspremiumelectrical.com',
+    website: 'brettselectrical.com',
     image: '../images/brett.jpg',
     stars: 4,
     price: 3
@@ -59,10 +59,10 @@ let contractors = [
   {
     id: 2,
     category: 'electrical',
-    name: "Brett's Mediocre Electrical",
-    description: 'I am a mediocre electrician.',
+    name: "Phil's Custom Electrical",
+    description: 'I professional custom electrician.',
     phone: '125-242-3515',
-    website: 'brettsmediocreelectrical.com',
+    website: 'philscustomelectrical.com',
     image: '../images/brett.jpg',
     stars: 4,
     price: 3
@@ -70,10 +70,10 @@ let contractors = [
   {
     id: 3,
     category: 'electrical',
-    name: "Brett's Budget Electrical",
+    name: "Jacob's Electrical",
     description: 'I am a budget electrician.',
     phone: '903-125-6932',
-    website: 'brettsbudgetelectrical.com',
+    website: 'jacobselectrical.com',
     image: '../images/brett.jpg',
     stars: 3,
     price: 1
@@ -81,10 +81,10 @@ let contractors = [
   {
     id: 4,
     category: 'electrical',
-    name: "Brett's Bad Electrical",
-    description: 'I am a bad electrician.',
+    name: "Mack's Electrical",
+    description: 'I a local certified electrician.',
     phone: '124-523-6547',
-    website: 'brettsbadelectrical.com',
+    website: 'mackselectrical.com',
     image: '../images/brett.jpg',
     stars: 3,
     price: 4
@@ -92,10 +92,10 @@ let contractors = [
   {
     id: 1,
     category: 'roofing',
-    name: "Brett's Premium Roofing",
+    name: "Brett's Roofing",
     description: 'I am a premium roofer.',
     phone: '545-213-3245',
-    website: 'brettspremiumroofing.com',
+    website: 'brettsroofing.com',
     image: '../images/brett.jpg',
     stars: 4,
     price: 3
@@ -103,10 +103,10 @@ let contractors = [
   {
     id: 2,
     category: 'roofing',
-    name: "Brett's Mediocre Roofing",
-    description: 'I am a mediocre roofer.',
+    name: "Phil's Custom Roofing",
+    description: 'I am red seal certified roofer.',
     phone: '125-242-3515',
-    website: 'brettsmediocreroofing.com',
+    website: 'philscustomroofing.com',
     image: '../images/brett.jpg',
     stars: 4,
     price: 3
@@ -114,10 +114,10 @@ let contractors = [
   {
     id: 3,
     category: 'roofing',
-    name: "Brett's Budget Roofing",
-    description: 'I am a budget roofer.',
+    name: "Jacob's Roofing",
+    description: 'I am a high quality budget roofer.',
     phone: '903-125-6932',
-    website: 'brettsbudgetroofing.com',
+    website: 'jacobsroofing.com',
     image: '../images/brett.jpg',
     stars: 3,
     price: 1
@@ -125,10 +125,10 @@ let contractors = [
   {
     id: 4,
     category: 'roofing',
-    name: "Brett's Bad Roofing",
-    description: 'I am a bad roofer.',
+    name: "Mack's Roofing",
+    description: 'I am a reputable local roofer.',
     phone: '124-523-6547',
-    website: 'brettsbadroofing.com',
+    website: 'macksroofing.com',
     image: '../images/brett.jpg',
     stars: 3,
     price: 4
@@ -136,10 +136,10 @@ let contractors = [
   {
     id: 1,
     category: 'plumbing',
-    name: "Brett's Premium Plumbing",
+    name: "Brett's Plumbing",
     description: 'I am a premium plumber.',
     phone: '545-213-3245',
-    website: 'brettspremiumplumbing.com',
+    website: 'brettsplumbing.com',
     image: '../images/brett.jpg',
     stars: 4,
     price: 3
@@ -147,10 +147,10 @@ let contractors = [
   {
     id: 2,
     category: 'plumbing',
-    name: "Brett's Mediocre Plumbing",
-    description: 'I am a mediocre plumber.',
+    name: "Phil's Custom Plumbing",
+    description: 'I am a world famous plumber.',
     phone: '125-242-3515',
-    website: 'brettsmediocreplumbing.com',
+    website: 'philscustomplumbing.com',
     image: '../images/brett.jpg',
     stars: 4,
     price: 3
@@ -158,10 +158,10 @@ let contractors = [
   {
     id: 3,
     category: 'plumbing',
-    name: "Brett's Budget Plumbing",
-    description: 'I am a budget plumber.',
+    name: "Jacob's Plumbing",
+    description: 'I am the best plumber in town.',
     phone: '903-125-6932',
-    website: 'brettsbudgetplumbing.com',
+    website: 'jacobsplumbing.com',
     image: '../images/brett.jpg',
     stars: 3,
     price: 1
@@ -169,10 +169,10 @@ let contractors = [
   {
     id: 4,
     category: 'plumbing',
-    name: "Brett's Bad Plumbing",
-    description: 'I am a bad plumber.',
+    name: "Mack's Plumbing",
+    description: 'I am a red seal certified plumber.',
     phone: '124-523-6547',
-    website: 'brettsbadplumbing.com',
+    website: 'macksplumbing.com',
     image: '../images/brett.jpg',
     stars: 3,
     price: 4
@@ -180,10 +180,10 @@ let contractors = [
   {
     id: 1,
     category: 'HVAC',
-    name: "Brett's Premium HVAC",
+    name: "Brett's HVAC",
     description: 'I am a premium HVAC guy.',
     phone: '545-213-3245',
-    website: 'brettspremiumhvac.com',
+    website: 'brettshvac.com',
     image: '../images/brett.jpg',
     stars: 4,
     price: 3
@@ -191,10 +191,10 @@ let contractors = [
   {
     id: 2,
     category: 'HVAC',
-    name: "Brett's Mediocre HVAC",
-    description: 'I am a mediocre HVAC guy.',
+    name: "Phil's Custom HVAC",
+    description: 'I am a best in class HVAC guy.',
     phone: '125-242-3515',
-    website: 'brettsmediocrehvac.com',
+    website: 'philscustomhvac.com',
     image: '../images/brett.jpg',
     stars: 4,
     price: 3
@@ -202,10 +202,10 @@ let contractors = [
   {
     id: 3,
     category: 'HVAC',
-    name: "Brett's Budget HVAC",
-    description: 'I am a budget HVAC guy.',
+    name: "Jacob's HVAC",
+    description: 'I am a high quality budget HVAC guy.',
     phone: '903-125-6932',
-    website: 'brettsbudgethvac.com',
+    website: 'jacobshvac.com',
     image: '../images/brett.jpg',
     stars: 3,
     price: 1
@@ -213,10 +213,10 @@ let contractors = [
   {
     id: 4,
     category: 'HVAC',
-    name: "Brett's Bad HVAC",
-    description: 'I am a bad HVAC guy.',
+    name: "Mack's HVAC",
+    description: 'I am a locally certified HVAC guy.',
     phone: '124-523-6547',
-    website: 'brettsbadhvac.com',
+    website: 'mackshvac.com',
     image: '../images/brett.jpg',
     stars: 3,
     price: 4
