@@ -43,7 +43,7 @@ const UserProfileScreen = ({ navigation }) => {
         onPress={editing ? update : startEditing}
       />
       <Card style={styles.infoForm}>
-        <Card.Title titleStyle={styles.Title} title="Your Details" />
+        <Card.Title titleStyle={styles.detailTitle} title="Your Details" />
         <Card.Content>
           <TextInput
             label="Name"
@@ -102,25 +102,34 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     width: '90%',
     ...commonStyles.Card,
-    paddingBottom: 0
+    padding: 0,
+    margin: 0,
   },
   userReviews: {
-    flex: 1,
     alignItems: 'flex-start',
     marginTop: 5,
     padding: 0,
     width: '90%',
     ...commonStyles.Card
   },
+  detailTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    margin: -15,
+    padding: 0
+  },
   Title: {
     fontSize: 16,
+    fontWeight: 'bold',
     margin: 0,
+    marginBottom: 5,
     padding: 0
   },
   Textbox: {
-    width: '100%',
+    width: '110%',
     marginBottom: 5,
-    marginHorizontal: 0
+    marginLeft: -15,
+    height: 50,
   },
   Avatar: {
     marginTop: 5

@@ -28,6 +28,15 @@ const ContractorProfileScreen = ({ navigation, route }) => {
           subtitleStyle={styles.subtitle}
         />
         <Card.Content style={styles.cardContent}>
+          <FAB
+            style={styles.fab}
+            icon={'plus'}
+            onPress={() =>
+              navigation.navigate('Add Review', {
+                contractorInfo: contractorInfo
+              })
+            }
+          />
           <View style={styles.cardTop}>
             <Avatar.Image
               size={70}
@@ -52,7 +61,7 @@ const ContractorProfileScreen = ({ navigation, route }) => {
         </Card.Content>
       </Card>
 
-      <Card
+      <TouchableOpacity
         style={styles.reviewsCard}
         onPress={() =>
           navigation.navigate('Reviews', {
@@ -61,25 +70,11 @@ const ContractorProfileScreen = ({ navigation, route }) => {
           })
         }
       >
-        <Card.Title
-          titleStyle={styles.reviewsTitle}
-          title="Top 2 Reviews"
-        ></Card.Title>
-        <Card.Content style={styles.reviewsContent}>
-          <FAB
-            style={styles.fab}
-            icon={'plus'}
-            onPress={() =>
-              navigation.navigate('Add Review', {
-                contractorInfo: contractorInfo
-              })
-            }
-          />
-          {reviews?.slice(0, 2).map((review, index) => (
-            <ReviewCard key={index} reviewInfo={review} />
-          ))}
-        </Card.Content>
-      </Card>
+        <Text style={styles.reviewsTitle}>Top 2 Reviews</Text>
+        {reviews?.slice(0, 2).map((review, index) => (
+          <ReviewCard key={index} reviewInfo={review} />
+        ))}
+      </TouchableOpacity>
 
       <Card style={styles.photosCard}>
         <Card.Title titleStyle={styles.reviewsTitle} title={'Photos'} />
@@ -112,7 +107,6 @@ const styles = StyleSheet.create({
   },
   reviewsCard: {
     marginTop: 5,
-    height: '40%',
     width: '90%',
     ...commonStyles.Card
   },
@@ -132,16 +126,23 @@ const styles = StyleSheet.create({
     fontSize: 14
   },
   reviewsTitle: {
-    fontSize: 16
+    fontSize: 16,
+    fontWeight: 'bold',
+    margin: 0,
+    marginBottom: 5,
+    padding: 0
   },
   photosCard: {
+    paddingTop: -15,
+    marginTop: 5,
     paddingHorizontal: 10,
-    height: '15%',
     width: '90%',
     ...commonStyles.Card
   },
   photosBox: {
-    flexDirection: 'row'
+    height: 50,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
   },
   contractorText: {
     flexDirection: 'column',
@@ -198,8 +199,8 @@ const styles = StyleSheet.create({
   fab: {
     width: 56,
     position: 'absolute',
-    right: 10,
-    top: -57
+    right: 0,
+    top: -75
   }
 });
 

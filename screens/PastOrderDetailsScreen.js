@@ -59,7 +59,7 @@ const PastOrderDetailsScreen = ({ navigation, route }) => {
           <View style={styles.headerRow}>
             <Text style={styles.dateMetadata}>Booked: {route.params.date}</Text>
           </View>
-          <Text style={styles.jobMetadata}>Job: {}</Text>
+          <Text style={styles.jobMetadata}>Job: {route.params.job}</Text>
           <Text style={styles.priceMetadata}>Cost: ${route.params.price}</Text>
         </View>
       </View>
