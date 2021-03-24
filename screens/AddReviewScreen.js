@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
-import { TextInput, Button, Card } from 'react-native-paper';
+import { StyleSheet, View, TouchableOpacity } from 'react-native';
+import { TextInput, Button, Card, Text } from 'react-native-paper';
 import { addReview } from '../stubs/reviews.js';
 import { getUser } from '../stubs/user.js';
 import { commonStyles, theme } from '../styles';
@@ -37,7 +37,12 @@ const AddReviewScreen = ({ navigation, route }) => {
           style={styles.reviewInput}
           onChangeText={(text) => setBody(text)}
         />
-        <Button onPress={save}>Save</Button>
+        <TouchableOpacity
+          onPress={save}
+          style={styles.button}
+        >
+          <Text style={styles.buttonText}>SAVE</Text>
+        </TouchableOpacity>
       </Card.Content>
     </Card>
   );
@@ -46,9 +51,22 @@ const AddReviewScreen = ({ navigation, route }) => {
 const styles = StyleSheet.create({
   Container: {
     width: '90%',
-    marginTop: 10,
+    marginTop: '20%',
     marginLeft: '5%',
     ...commonStyles.Card
+  },
+  buttonText: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 14,
+    color: 'white'
+  },
+  button: {
+    justifyContent: 'center',
+    backgroundColor: '#2196F3',
+    marginVertical: 10,
+    width: '100%',
+    height: 50
   },
   starInput: {
     marginBottom: 10,
