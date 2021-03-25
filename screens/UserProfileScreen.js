@@ -44,7 +44,7 @@ const UserProfileScreen = ({ navigation }) => {
       />
       <Card style={styles.infoForm}>
         <Card.Title titleStyle={styles.detailTitle} title="Your Details" />
-        <Card.Content>
+        <Card.Content style={styles.content}>
           <TextInput
             label="Name"
             value={name}
@@ -99,11 +99,11 @@ const styles = StyleSheet.create({
   },
   infoForm: {
     flex: 2,
+    marginTop: 5,
     justifyContent: 'flex-start',
     width: '90%',
     ...commonStyles.Card,
     padding: 0,
-    margin: 0,
   },
   userReviews: {
     alignItems: 'flex-start',
@@ -112,10 +112,14 @@ const styles = StyleSheet.create({
     width: '90%',
     ...commonStyles.Card
   },
+  content: {
+    marginTop: -10,
+  },
   detailTitle: {
     fontSize: 16,
     fontWeight: 'bold',
-    margin: -15,
+    marginTop: -20,
+    marginLeft: -15,
     padding: 0
   },
   Title: {
@@ -129,7 +133,7 @@ const styles = StyleSheet.create({
     width: '110%',
     marginBottom: 5,
     marginLeft: -15,
-    height: 50,
+    height: 55,
   },
   Avatar: {
     marginTop: 5
@@ -137,8 +141,8 @@ const styles = StyleSheet.create({
   fab: {
     position: 'absolute',
     margin: 16,
-    top: 0,
-    right: 0
+    top: 5,
+    right: 5
   }
 });
 

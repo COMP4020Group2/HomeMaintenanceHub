@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
     ...commonStyles.Card
   },
   photosBox: {
-    height: 90,
+    height: 70,
     flexDirection: 'row',
     justifyContent: 'space-between'
   },
@@ -176,11 +176,12 @@ const styles = StyleSheet.create({
     color: 'white'
   },
   button: {
+    borderRadius: 8,
     padding: 10,
     justifyContent: 'center',
     backgroundColor: '#2196F3',
     marginHorizontal: 10,
-    marginVertical: 10,
+    marginVertical: 5,
     width: '90%',
     height: 50
   },
@@ -189,8 +190,8 @@ const styles = StyleSheet.create({
     fontSize: 14
   },
   photo: {
-    width: '30%',
-    height: 80,
+    width: '20%',
+    height: 60,
     resizeMode: 'contain'
   },
   headerRow: {

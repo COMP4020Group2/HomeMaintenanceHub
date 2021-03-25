@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, TouchableOpacity } from 'react-native';
-import { TextInput, Button, Card, Text } from 'react-native-paper';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { TextInput, Card, Text } from 'react-native-paper';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { addReview } from '../stubs/reviews.js';
 import { getUser } from '../stubs/user.js';
-import { commonStyles, theme } from '../styles';
+import { commonStyles } from '../styles';
 
 const AddReviewScreen = ({ navigation, route }) => {
   const [body, setBody] = useState('');
@@ -24,12 +25,24 @@ const AddReviewScreen = ({ navigation, route }) => {
   return (
     <Card style={styles.Container}>
       <Card.Content>
-        <TextInput
-          label="Stars"
-          value={stars}
-          style={styles.starInput}
-          onChangeText={(text) => setStars(text)}
-        />
+        <View style={styles.starRow}>
+          <TouchableOpacity onPress={() => {setStars("1")}}>
+            <MaterialCommunityIcons name={stars >= 1 ? 'star' : 'star-outline'} size={48} color={"#2196F3"} />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => {setStars("2")}}>
+            <MaterialCommunityIcons name={stars >= 2 ? 'star' : 'star-outline'} size={48} color={"#2196F3"} />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => {setStars("3")}}>
+            <MaterialCommunityIcons name={stars >= 3 ? 'star' : 'star-outline'} size={48} color={"#2196F3"} />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => {setStars("4")}}>
+            <MaterialCommunityIcons name={stars >= 4 ? 'star' : 'star-outline'} size={48} color={"#2196F3"} />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => {setStars("5")}}>
+            <MaterialCommunityIcons name={stars >= 5 ? 'star' : 'star-outline'} size={48} color={"#2196F3"} />
+          </TouchableOpacity>
+        </View>
+        
         <TextInput
           label="Review"
           multiline
@@ -67,6 +80,11 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     width: '100%',
     height: 50
+  },
+  starRow: {
+    flexDirection: 'row',
+    marginLeft: 40,
+    marginBottom: 20
   },
   starInput: {
     marginBottom: 10,

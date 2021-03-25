@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 import { Searchbar } from 'react-native-paper';
 import { theme } from '../styles';
 
@@ -8,7 +8,7 @@ const SearchScreen = ({ navigation }) => {
 
   const onChangeSearch = (query) => setSearchQuery(query);
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView style={styles.container} behavior="padding">
       <Searchbar
         style={styles.searchbar}
         placeholder="Search"
@@ -44,7 +44,7 @@ const SearchScreen = ({ navigation }) => {
           <Text style={styles.hvac, styles.buttonText}>HVAC</Text>
         </View>
       </TouchableOpacity>
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 
