@@ -9,11 +9,14 @@ const ReviewCard = ({ reviewInfo }) => {
     <Card style={styles.card}>
       <Card.Title
         title={reviewInfo.reviewer}
-        subtitle={`${buildStars(reviewInfo.stars)} ${reviewInfo.date}`}
         subtitleStyle={styles.subtitle}
         titleStyle={styles.title}
       />
       <Card.Content style={styles.cardContent}>
+        <View style={styles.row}>
+          <Text style={styles.stars}>{buildStars(reviewInfo.stars)}</Text>
+          <Text>{reviewInfo.date}</Text>
+        </View>
         <Text></Text>
         <Text>{reviewInfo.body}</Text>
       </Card.Content>
@@ -35,6 +38,15 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     width: '100%',
     borderRadius: 5
+  },
+  stars: {
+    color: "#2196F3"
+  },
+  row: {
+    flexDirection: 'row',
+    marginTop: 15,
+    marginBottom: -10,
+    justifyContent: 'space-between'
   },
   subtitle: {
     color: 'black'

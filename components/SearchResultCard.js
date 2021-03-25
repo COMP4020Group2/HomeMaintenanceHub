@@ -1,8 +1,9 @@
 import React from 'react';
-import { StyleSheet, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Text, Avatar, Card } from 'react-native-paper';
-import { commonStyles } from '../styles';
+import { commonStyles, theme } from '../styles';
 import { buildStars, buildDollars } from '../utils/stringUtils';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const SearchResultCard = ({ contractorInfo, navigate }) => {
   return (
@@ -24,6 +25,7 @@ const SearchResultCard = ({ contractorInfo, navigate }) => {
       <Text style={styles.entryText}>{contractorInfo.name}</Text>
       <Text style={styles.rateText}>{buildStars(contractorInfo.stars)}</Text>
       <Text style={styles.priceText}>{buildDollars(contractorInfo.price)}</Text>
+      <MaterialCommunityIcons name={'chevron-right'} color={theme.colors.dark} style={styles.arrow} size={40} />
     </Card>
   );
 };
@@ -63,6 +65,11 @@ const styles = StyleSheet.create({
   },
   row: {
     flex: 1
+  },
+  arrow: {
+    position: 'absolute',
+    top: 15,
+    right: -10,
   }
 });
 

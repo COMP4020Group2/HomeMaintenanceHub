@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 import { Searchbar } from 'react-native-paper';
-import { theme } from '../styles';
 
 const SearchScreen = ({ navigation }) => {
   const [searchQuery, setSearchQuery] = React.useState('');

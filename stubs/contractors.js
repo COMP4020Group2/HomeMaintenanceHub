@@ -229,7 +229,7 @@ const setStars = () => {
     if (reviews.length !== 0) {
       let totalStars = 0;
       reviews.forEach((review) => (totalStars += review.stars));
-      contractor.stars = totalStars / reviews.length;
+      contractor.stars = Math.round(totalStars / reviews.length);
     } else {
       contractor.stars = 0;
     }

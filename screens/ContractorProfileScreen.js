@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
-import { Avatar, Card, FAB } from 'react-native-paper';
+import { Avatar, Card } from 'react-native-paper';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { buildDollars, buildStars } from '../utils/stringUtils';
 import { getContractorReviews } from '../stubs/reviews';
 import ReviewCard from '../components/ReviewCard';
 import { useIsFocused } from '@react-navigation/native';
-import { commonStyles } from '../styles';
+import { commonStyles, theme } from '../styles';
 
 const ContractorProfileScreen = ({ navigation, route }) => {
   const [reviews, setReviews] = useState();
