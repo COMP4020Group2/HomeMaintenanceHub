@@ -29,7 +29,7 @@ let reviews = [
   },
   {
     contractor: "Phil's Custom Carpentry",
-    reviewer: 'Jordan Portz',
+    reviewer: 'Cody Ko',
     date: 'April 1, 2020',
     stars: 4,
     body: 'The work is perfect but it takes him a long time.'
@@ -74,16 +74,16 @@ let reviews = [
   },
   {
     contractor: "Phil's Custom Electrical",
-    reviewer: 'Rob Guderian',
+    reviewer: 'Timmy Johnson',
     date: 'Jan 20, 2020',
-    stars: 3,
-    body: 'Brett and his team were friendly, timely and professional.'
+    stars: 5,
+    body: 'Phil and his team were friendly, timely and professional.'
   },
   {
     contractor: "Phil's Custom Electrical",
     reviewer: 'Rob Guderian',
     date: 'Jan 20, 2020',
-    stars: 2,
+    stars: 1,
     body: 'Only cost me 5 dollars, but he did 5000 dollars in damage...'
   },
   {
@@ -136,7 +136,7 @@ let reviews = [
     reviewer: 'Edie Lopez',
     date: 'December 21, 2020',
     stars: 4,
-    body: 'Brett was professional friendly and answer all our questions.'
+    body: 'Phil was professional friendly and answer all our questions.'
   },
   {
     contractor: "Phil's Custom Roofing",
