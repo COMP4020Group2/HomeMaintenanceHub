@@ -38,7 +38,6 @@ const UserProfileScreen = ({ navigation }) => {
         style={styles.Avatar}
       />
       <FAB
-        color={'black'}
         style={styles.fab}
         icon={editing ? 'content-save' : 'pencil'}
         onPress={editing ? update : startEditing}

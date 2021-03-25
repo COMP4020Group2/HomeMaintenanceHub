@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, ScrollView } from 'react-native';
 import ReviewCard from '../components/ReviewCard';
-import { Card, FAB } from 'react-native-paper';
+import { FAB } from 'react-native-paper';
 
 const ContractorReviewsScreen = ({ navigation, route }) => {
   return (
@@ -14,7 +14,6 @@ const ContractorReviewsScreen = ({ navigation, route }) => {
         />
       ))}
       <FAB
-        color={'blue'}
         style={styles.fab}
         icon={'plus'}
         onPress={() => {
@@ -37,6 +36,7 @@ const styles = StyleSheet.create({
   },
   fab: {
     position: 'absolute',
+    backgroundColor: '#2196F3',
     bottom: 20,
     right: 10
   }
