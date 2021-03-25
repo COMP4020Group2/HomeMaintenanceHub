@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingVertical: 20,
     paddingHorizontal: 10,
-    backgroundColor: theme.colors.secondary,
+    backgroundColor: '#2196F3',
     marginHorizontal: '5%',
     marginVertical: '5%',
     width: '90%'

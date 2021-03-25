@@ -139,6 +139,7 @@ const styles = StyleSheet.create({
     marginTop: 5
   },
   fab: {
+    backgroundColor: '#2196F3',
     position: 'absolute',
     margin: 16,
     top: 5,
