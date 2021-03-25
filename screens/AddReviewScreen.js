@@ -8,7 +8,7 @@ import { commonStyles } from '../styles';
 
 const AddReviewScreen = ({ navigation, route }) => {
   const [body, setBody] = useState('');
-  const [stars, setStars] = useState('');
+  const [stars, setStars] = useState(0);
 
   const save = () => {
     addReview(
@@ -17,6 +17,10 @@ const AddReviewScreen = ({ navigation, route }) => {
       parseInt(stars),
       body
     );
+
+    setBody('');
+    setStars(0);
+
     navigation.navigate('Contractor Profile', {
       ...route.params.contractorInfo
     });

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, ToastAndroid  } from 'react-native';
 import { Avatar, Card } from 'react-native-paper';
 import { buildStars } from '../utils/stringUtils';
 import { getUserContractorReview } from '../stubs/reviews';
@@ -7,11 +7,14 @@ import { getUser } from '../stubs/user';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { TouchableOpacity } from 'react-native';
 import { updateOrder } from '../stubs/pastorders';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { getContractor } from '../stubs/contractors';
+import { useIsFocused } from '@react-navigation/native';
 import { commonStyles } from '../styles';
 
 const PastOrderDetailsScreen = ({ navigation, route }) => {
+  const contractor = getContractor(route.params.name);
+  const isFocused = useIsFocused();
 
   var displayImage;
   if ( route.params.name.includes("Brett's") ){
@@ -24,10 +27,18 @@ const PastOrderDetailsScreen = ({ navigation, route }) => {
         displayImage = require("../images/mack.jpg")
   }
 
-  const reviewResponse = getUserContractorReview(
+  const [reviewResponse, setReviewResponse] = useState(getUserContractorReview(
     getUser().name,
     route.params.name
-  );
+  ));
+
+  useEffect(() => {
+    setReviewResponse(getUserContractorReview(
+      getUser().name,
+      route.params.name
+    ));
+  }, [isFocused]);
+
   let myReview = reviewResponse[0];
   const [positive, setPositive] = useState(route.params.positive);
 
@@ -91,7 +102,11 @@ const PastOrderDetailsScreen = ({ navigation, route }) => {
         ) : (
           <View style={styles.reviewBox}>
             <Text style={{ fontWeight: 'bold', fontSize: 14, textAlign: 'center', marginBottom: 5 }}>No Review</Text>
-            <TouchableOpacity style={styles.buttonReview}>
+            <TouchableOpacity style={styles.buttonReview} onPress={() => {
+            navigation.navigate('Add Review', {
+              contractorInfo: contractor
+            })
+          }}>
             <Text style={styles.buttonReviewText}>LEAVE A REVIEW</Text>
           </TouchableOpacity>
           </View>
@@ -118,7 +133,7 @@ const PastOrderDetailsScreen = ({ navigation, route }) => {
               />
             </TouchableOpacity>
           </View>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity style={styles.button} onPress={() => {ToastAndroid.show("Not implemented yet.", ToastAndroid.SHORT)}}>
             <Text style={styles.buttonText}>Full Invoice</Text>
           </TouchableOpacity>
 

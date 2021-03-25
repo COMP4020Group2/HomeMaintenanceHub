@@ -10,8 +10,9 @@ const SearchScreen = ({ navigation }) => {
     <KeyboardAvoidingView style={styles.container} behavior="padding">
       <Searchbar
         style={styles.searchbar}
-        placeholder="Search"
+        placeholder="Search (Not implemented)"
         value={searchQuery}
+        
         onChangeText={onChangeSearch}
       />
       <TouchableOpacity onPress={() => navigation.navigate('Search Results',{data:'Carpentry'})}>

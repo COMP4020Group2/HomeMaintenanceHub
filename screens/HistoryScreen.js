@@ -27,10 +27,10 @@ const HistoryScreen = ({ navigation }) => {
         dropDownStyle={{ backgroundColor: '#fafafa' }}
         items={[
           { label: 'All Time', value: 'allTime' },
-          { label: 'Past Year', value: 'pastYear' },
-          { label: 'Past 6 Months', value: 'past6Months' },
-          { label: 'Past 3 Months', value: 'past3Months' },
-          { label: 'Past Month', value: 'pastMonth' }
+          { label: 'Past Year', value: 'pastYear', disabled: true },
+          { label: 'Past 6 Months', value: 'past6Months', disabled: true },
+          { label: 'Past 3 Months', value: 'past3Months', disabled: true },
+          { label: 'Past Month', value: 'pastMonth', disabled: true }
         ]}
       />
       <ScrollView style={styles.historyEntries}>
