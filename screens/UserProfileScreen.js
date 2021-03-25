@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
     ...commonStyles.Card
   },
   content: {
-    marginTop: -10,
+    marginTop: -15,
   },
   detailTitle: {
     fontSize: 16,
