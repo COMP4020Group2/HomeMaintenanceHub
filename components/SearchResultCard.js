@@ -6,6 +6,18 @@ import { buildStars, buildDollars } from '../utils/stringUtils';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const SearchResultCard = ({ contractorInfo, navigate }) => {
+
+  var displayImage;
+  if ( contractorInfo.name.includes("Brett's") ){
+        displayImage = require("../images/brett.jpg");
+  }else if ( contractorInfo.name.includes("Phil's") ){
+        displayImage = require("../images/phil.jpg");
+  }else if ( contractorInfo.name.includes("Jacob's") ){
+        displayImage = require("../images/jacob.png");
+  }else if ( contractorInfo.name.includes("Mack's") ){
+        displayImage = require("../images/mack.jpg")
+  }
+
   return (
     <Card
       style={styles.entryBox}
@@ -18,7 +30,7 @@ const SearchResultCard = ({ contractorInfo, navigate }) => {
       <View style={styles.row}>
         <Avatar.Image
           size={64}
-          source={require('../images/brett.jpg')}
+          source={displayImage}
           style={styles.Avatar}
         />
       </View>

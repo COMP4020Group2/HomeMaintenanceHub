@@ -1,21 +1,21 @@
 let appointments = [
   {
     id: 1,
-    name: "Brett's Premium Carpentry",
+    name: "Brett's Carpentry",
     date: 'July 9, 2021',
     time: '11:00am - 12:00 PM',
     description: 'Quote'
   },
   {
     id: 2,
-    name: "Brett's Mediocre Carpentry",
+    name: "Phils Custom Carpentry",
     date: 'June 18, 2021',
     time: '11:00am - 12:00 PM',
     description: 'Quote'
   },
   {
     id: 3,
-    name: "Brett's Budget Carpentry",
+    name: "Jacobs Carpentry",
     date: 'April 1, 2021',
     time: '11:00am - 12:00 PM',
     description: 'Quote'

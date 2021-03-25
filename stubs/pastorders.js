@@ -1,7 +1,7 @@
 let pastOrders = [
   {
     id: 1,
-    name: "Brett's Premium Carpentry",
+    name: "Brett's Carpentry",
     date: 'Jul 9, 2020',
     job: 'Deck',
     price: 2200,
@@ -9,7 +9,7 @@ let pastOrders = [
   },
   {
     id: 2,
-    name: "Brett's Mediocre Carpentry",
+    name: "Phil's Custom Carpentry",
     date: 'Jun 18, 2020',
     job: 'Shelving Installation',
     price: 225,
@@ -17,7 +17,7 @@ let pastOrders = [
   },
   {
     id: 3,
-    name: "Brett's Budget Carpentry",
+    name: "Jacob's Carpentry",
     date: 'Apr 1, 2020',
     job: 'Flooring',
     price: 5,
@@ -25,7 +25,7 @@ let pastOrders = [
   },
   {
     id: 4,
-    name: "Brett's Good Carpentry",
+    name: "Mack's Electrical",
     date: 'Jan 29, 2020',
     job: 'Wall Construction',
     price: 275,
@@ -33,7 +33,7 @@ let pastOrders = [
   },
   {
     id: 5,
-    name: "Brett's Bad Carpentry",
+    name: "Mack's Carpentry",
     date: 'Nov 24, 2020',
     job: 'Deck',
     price: 500,

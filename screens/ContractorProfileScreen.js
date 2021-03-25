@@ -17,6 +17,17 @@ const ContractorProfileScreen = ({ navigation, route }) => {
     setReviews(getContractorReviews(contractorInfo.name));
   }, [isFocused]);
 
+  var displayImage;
+  if ( contractorInfo.name.includes("Brett's") ){
+        displayImage = require("../images/brett.jpg");
+  }else if ( contractorInfo.name.includes("Phil's") ){
+        displayImage = require("../images/phil.jpg");
+  }else if ( contractorInfo.name.includes("Jacob's") ){
+        displayImage = require("../images/jacob.png");
+  }else if ( contractorInfo.name.includes("Mack's") ){
+        displayImage = require("../images/mack.jpg")
+  }
+
   return (
     <View style={styles.container}>
       <Card style={styles.card}>
@@ -24,7 +35,7 @@ const ContractorProfileScreen = ({ navigation, route }) => {
           <View style={styles.row}>
             <Avatar.Image
               size={90}
-              source={require('../images/brett.jpg')}
+              source={displayImage}
               style={styles.Avatar}
             />
           </View>

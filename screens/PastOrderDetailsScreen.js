@@ -12,6 +12,18 @@ import { getContractor } from '../stubs/contractors';
 import { commonStyles } from '../styles';
 
 const PastOrderDetailsScreen = ({ navigation, route }) => {
+
+  var displayImage;
+  if ( route.params.name.includes("Brett's") ){
+        displayImage = require("../images/brett.jpg");
+  }else if ( route.params.name.includes("Phil's") ){
+        displayImage = require("../images/phil.jpg");
+  }else if ( route.params.name.includes("Jacob's") ){
+        displayImage = require("../images/jacob.png");
+  }else if ( route.params.name.includes("Mack's") ){
+        displayImage = require("../images/mack.jpg")
+  }
+
   const reviewResponse = getUserContractorReview(
     getUser().name,
     route.params.name
@@ -52,7 +64,7 @@ const PastOrderDetailsScreen = ({ navigation, route }) => {
           <View style={styles.row}>
             <Avatar.Image
               size={90}
-              source={require('../images/brett.jpg')}
+              source={displayImage}
               style={styles.Avatar}
             />
           </View>
