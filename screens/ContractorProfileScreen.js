@@ -19,13 +19,26 @@ const ContractorProfileScreen = ({ navigation, route }) => {
 
   var displayImage;
   if ( contractorInfo.name.includes("Brett's") ){
-        displayImage = require("../images/brett.jpg");
+    displayImage = require("../images/brett.jpg");
   }else if ( contractorInfo.name.includes("Phil's") ){
-        displayImage = require("../images/phil.jpg");
+    displayImage = require("../images/phil.jpg");
   }else if ( contractorInfo.name.includes("Jacob's") ){
-        displayImage = require("../images/jacob.png");
+    displayImage = require("../images/jacob.png");
   }else if ( contractorInfo.name.includes("Mack's") ){
-        displayImage = require("../images/mack.jpg")
+     displayImage = require("../images/mack.jpg")
+  }
+
+  var galleryImage;
+  if ( route.params.category.includes("carpentry") ){
+    galleryImage = require("../images/carpentry.png");
+  }else if ( route.params.category.includes("electrical") ){
+    galleryImage = require("../images/electrical.jpg");
+  }else if ( route.params.category.includes("roofing") ){
+    galleryImage = require("../images/roofing.jpg");
+  }else if ( route.params.category.includes("plumbing") ){
+    galleryImage = require("../images/plumbing.png")
+  }else if ( route.params.category.includes("HVAC") ){
+    galleryImage = require("../images/hvac.png")
   }
 
   return (
@@ -84,9 +97,8 @@ const ContractorProfileScreen = ({ navigation, route }) => {
       <Card style={styles.photosCard}>
         <Card.Title titleStyle={styles.reviewsTitle} title={'Photos'} />
         <Card.Content style={styles.photosBox}>
-          <Image style={styles.photo} source={require('../images/brett.jpg')} />
-          <Image style={styles.photo} source={require('../images/brett.jpg')} />
-          <Image style={styles.photo} source={require('../images/brett.jpg')} />
+          <Image style={styles.photo} source={galleryImage} />
+          <Image style={styles.photo} source={galleryImage} />
         </Card.Content>
       </Card>
       <View style={styles.buttons}>
@@ -170,7 +182,7 @@ const styles = StyleSheet.create({
     ...commonStyles.Card
   },
   photosBox: {
-    height: 70,
+    height: 80,
     flexDirection: 'row',
     justifyContent: 'space-between'
   },
@@ -207,8 +219,9 @@ const styles = StyleSheet.create({
     fontSize: 14
   },
   photo: {
-    width: '20%',
-    height: 60,
+    width: '80%',
+    height: 80,
+    marginLeft: -65,
     resizeMode: 'contain'
   },
   headerRow: {
