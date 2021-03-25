@@ -5,6 +5,7 @@ import { getUserReviews } from '../stubs/reviews.js';
 import userStub from '../stubs/user.js';
 import ReviewCard from '../components/ReviewCard';
 import { commonStyles, theme } from '../styles';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const UserProfileScreen = ({ navigation }) => {
   const user = userStub.getUser();
@@ -84,6 +85,7 @@ const UserProfileScreen = ({ navigation }) => {
         }
       >
         <Text style={styles.Title}>Your Top 2 Reviews</Text>
+        <MaterialCommunityIcons name={'chevron-right'} color={theme.colors.dark} style={styles.arrow} size={32} />
         {reviews.slice(0, 2).map((review, index) => (
           <ReviewCard key={index} reviewInfo={review} />
         ))}
@@ -104,6 +106,11 @@ const styles = StyleSheet.create({
     width: '90%',
     ...commonStyles.Card,
     padding: 0,
+  },
+  arrow: {
+    position: 'absolute',
+    top: 5,
+    right: 5,
   },
   userReviews: {
     alignItems: 'flex-start',

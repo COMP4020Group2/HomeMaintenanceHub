@@ -64,6 +64,7 @@ const ContractorProfileScreen = ({ navigation, route }) => {
         }
       >
         <Text style={styles.reviewsTitle}>Top 2 Reviews</Text>
+        <MaterialCommunityIcons name={'chevron-right'} color={theme.colors.dark} style={styles.arrow} size={32} />
         {reviews?.slice(0, 2).map((review, index) => (
           <ReviewCard key={index} reviewInfo={review} />
         ))}
@@ -120,6 +121,11 @@ const styles = StyleSheet.create({
     marginTop: 5,
     width: '90%',
     ...commonStyles.Card
+  },
+  arrow: {
+    position: 'absolute',
+    top: 5,
+    right: 5,
   },
   contractorInfoText: {
     flexDirection: 'row',

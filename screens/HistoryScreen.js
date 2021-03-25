@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, ScrollView } from 'react-native';
-import { Text } from 'react-native-paper';
 import HistoryCard from '../components/HistoryCard';
 import { getAllPastOrders } from '../stubs/pastorders';
 import { useEffect } from 'react';
