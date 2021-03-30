@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import { Agenda } from 'react-native-calendars';
 import { Card, Text, Portal, Dialog, Button } from 'react-native-paper';
@@ -16,12 +16,55 @@ const getMonday = (day) => {
   return date;
 };
 
+const formatDate = (day) => {
+  let month = '';
+  switch (day.month) {
+    case 1:
+      month = 'January';
+      break;
+    case 2:
+      month = 'February';
+      break;
+    case 3:
+      month = 'March';
+      break;
+    case 4:
+      month = 'April';
+      break;
+    case 5:
+      month = 'May';
+      break;
+    case 6:
+      month = 'June';
+      break;
+    case 7:
+      month = 'July';
+      break;
+    case 8:
+      month = 'August';
+      break;
+    case 9:
+      month = 'September';
+      break;
+    case 10:
+      month = 'October';
+      break;
+    case 11:
+      month = 'November';
+      break;
+    case 12:
+      month = 'December';
+      break;
+  }
+  return `${month} ${day.day}, ${day.year}`;
+};
+
 const BookScreen = ({ navigation, route }) => {
   const [items, setItems] = useState({});
   const [dialogVisible, setDialogVisible] = useState(false);
   const [time, setTime] = useState('');
   const [type, setType] = useState('');
-  const [day, setDay] = useState('');
+  const [day, setDay] = useState(formatDate(new Date()));
 
   const showDialog = (time, type) => {
     setTime(time);
@@ -35,49 +78,6 @@ const BookScreen = ({ navigation, route }) => {
     setItems(getAvailabilities(getMonday(day)));
   };
 
-  const formatDate = (day) => {
-    let month = '';
-    switch (day.month) {
-      case 1:
-        month = 'January';
-        break;
-      case 2:
-        month = 'February';
-        break;
-      case 3:
-        month = 'March';
-        break;
-      case 4:
-        month = 'April';
-        break;
-      case 5:
-        month = 'May';
-        break;
-      case 6:
-        month = 'June';
-        break;
-      case 7:
-        month = 'July';
-        break;
-      case 8:
-        month = 'August';
-        break;
-      case 9:
-        month = 'September';
-        break;
-      case 10:
-        month = 'October';
-        break;
-      case 11:
-        month = 'November';
-        break;
-      case 12:
-        month = 'December';
-        break;
-    }
-    return `${month} ${day.day}, ${day.year}`;
-  };
-
   const bookAppointment = () => {
     addAppointment({
       name: route.params.name,
@@ -87,7 +87,9 @@ const BookScreen = ({ navigation, route }) => {
     });
     hideDialog();
     navigation.popToTop();
-    navigation.navigate('Upcoming Appointments');
+    navigation.navigate('Appointments', {
+      screen: 'Upcoming Appointments'
+    });
   };
 
   const renderItem = (item) => {
@@ -145,4 +147,4 @@ const BookScreen = ({ navigation, route }) => {
   );
 };
 
-export default BookScreen;
+export default memo(BookScreen);

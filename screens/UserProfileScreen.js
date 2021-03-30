@@ -84,7 +84,12 @@ const UserProfileScreen = ({ navigation }) => {
         }
       >
         <Text style={styles.Title}>Your Top 2 Reviews</Text>
-        <MaterialCommunityIcons name={'chevron-right'} color={theme.colors.dark} style={styles.arrow} size={32} />
+        <MaterialCommunityIcons
+          name={'chevron-right'}
+          color={theme.colors.dark}
+          style={styles.arrow}
+          size={32}
+        />
         {reviews.slice(0, 2).map((review, index) => (
           <ReviewCard key={index} reviewInfo={review} />
         ))}
@@ -105,11 +110,12 @@ const styles = StyleSheet.create({
     width: '90%',
     ...commonStyles.Card,
     padding: 0,
+    zIndex: 1000
   },
   arrow: {
     position: 'absolute',
     top: 5,
-    right: 5,
+    right: 5
   },
   userReviews: {
     alignItems: 'flex-start',
@@ -119,7 +125,7 @@ const styles = StyleSheet.create({
     ...commonStyles.Card
   },
   content: {
-    marginTop: -15,
+    marginTop: -15
   },
   detailTitle: {
     fontSize: 16,
@@ -139,7 +145,7 @@ const styles = StyleSheet.create({
     width: '110%',
     marginBottom: 5,
     marginLeft: -15,
-    height: 55,
+    height: 55
   },
   Avatar: {
     marginTop: 5
