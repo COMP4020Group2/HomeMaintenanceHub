@@ -15,13 +15,13 @@ const AppointmentCard = ({ appointment }) => {
       ></Card.Title>
       <Card.Content style={styles.Info}>
         <MaterialCommunityIcons
-          name="calendar"
+          name="clock"
           color={theme.colors.dark}
           size={26}
         />
         <Text style={styles.Text}>{appointment.date}</Text>
         <MaterialCommunityIcons
-          name="clock"
+          name="calendar"
           color={theme.colors.dark}
           size={26}
         />

@@ -8,14 +8,14 @@ let appointments = [
   },
   {
     id: 2,
-    name: "Phil's Custom Carpentry",
+    name: "Phils Custom Carpentry",
     date: 'June 18, 2021',
     time: '11:00am - 12:00 PM',
     description: 'Quote'
   },
   {
     id: 3,
-    name: "Jacob's Carpentry",
+    name: "Jacobs Carpentry",
     date: 'April 1, 2021',
     time: '11:00am - 12:00 PM',
     description: 'Quote'

@@ -1,19 +1,34 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
 import HistoryScreen from '../HistoryScreen';
 import PastOrderDetailsScreen from '../PastOrderDetailsScreen';
+import BookScreen from '../BookScreen';
+import { theme } from '../../styles';
 
 const HistoryStack = createStackNavigator();
 
 const HistoryStackScreen = ({ navigation }) => {
   return (
-    <HistoryStack.Navigator>
+    <HistoryStack.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: theme.colors.dark
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold'
+        },
+        cardStyle: {
+          backgroundColor: 'white'
+        }
+      }}
+    >
       <HistoryStack.Screen name="History" component={HistoryScreen} />
       <HistoryStack.Screen
-        name="PastOrderDetails"
+        name="Past Order Details"
         component={PastOrderDetailsScreen}
       />
+      <HistoryStack.Screen name="Book" component={BookScreen} />
     </HistoryStack.Navigator>
   );
 };
